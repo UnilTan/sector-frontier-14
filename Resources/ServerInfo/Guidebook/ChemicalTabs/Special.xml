@@ -1,9 +1,7 @@
 <Document>
+  # Особые
 
-# Special
+  Эти реагенты имеют либо экзотическое происхождение, либо уникальные свойства — а иногда и то и другое.
 
-These reagents either have exotic sources, unique properties, or both.
-
-<GuideReagentGroupEmbed Group="Special"/>
-
+  <GuideReagentGroupEmbed Group="Special"/>
 </Document>

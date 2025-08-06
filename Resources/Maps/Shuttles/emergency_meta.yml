@@ -5879,7 +5879,7 @@ entities:
       count: 2
     - type: Physics
       canCollide: False
-- proto: ShuttleWindow
+- proto: ReinforcedWindow
   entities:
   - uid: 749
     components:
@@ -7298,7 +7298,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,-9.5
       parent: 1
-- proto: WallShuttle
+- proto: WallReinforced
   entities:
   - uid: 815
     components:
@@ -7570,7 +7570,7 @@ entities:
     - type: Transform
       pos: 19.5,-5.5
       parent: 1
-- proto: WallShuttleDiagonal
+- proto: WallReinforcedDiagonal
   entities:
   - uid: 904
     components:
@@ -7583,7 +7583,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-11.5
       parent: 1
-- proto: WallShuttleInterior
+- proto: WallReinforcedInterior
   entities:
   - uid: 679
     components:

@@ -7898,7 +7898,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 424
-- proto: ShuttleWindow
+- proto: ReinforcedWindow
   entities:
   - uid: 927
     components:
@@ -8852,7 +8852,7 @@ entities:
     - type: Transform
       pos: -0.5,-11.5
       parent: 1
-- proto: WallShuttle
+- proto: WallReinforced
   entities:
   - uid: 1073
     components:
@@ -10000,7 +10000,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-0.5
       parent: 1
-- proto: WallShuttleDiagonal
+- proto: WallReinforcedDiagonal
   entities:
   - uid: 1266
     components:

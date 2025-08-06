@@ -1232,7 +1232,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ShuttleWindow
+- proto: ReinforcedWindow
   entities:
   - uid: 7
     components:
@@ -1438,7 +1438,7 @@ entities:
     - type: Transform
       pos: 0.5,9.5
       parent: 2
-- proto: WallShuttle
+- proto: WallReinforced
   entities:
   - uid: 4
     components:
@@ -1598,7 +1598,7 @@ entities:
     - type: Transform
       pos: -0.5,10.5
       parent: 2
-- proto: WallShuttleDiagonal
+- proto: WallReinforcedDiagonal
   entities:
   - uid: 8
     components:

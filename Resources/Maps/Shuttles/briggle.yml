@@ -910,7 +910,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ShuttleWindow
+- proto: ReinforcedWindow
   entities:
   - uid: 2
     components:
@@ -1042,7 +1042,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-10.5
       parent: 1
-- proto: WallShuttle
+- proto: WallReinforced
   entities:
   - uid: 21
     components:
@@ -1104,7 +1104,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-10.5
       parent: 1
-- proto: WallShuttleDiagonal
+- proto: WallReinforcedDiagonal
   entities:
   - uid: 3
     components:

@@ -1,34 +1,34 @@
 <Document>
-  # NT New Frontiers Program
+  # Программа NT «Новые Рубежи»
 
-Thank you for signing up for the New Frontiers Program! As a Nanotrasen employee, you're helping to develop the furthest reaches of space!
+Спасибо за участие в программе «Новые Рубежи»! Как сотрудник NanoTrasen, вы помогаете осваивать самые удалённые уголки космоса!
 
-[color=#33bbff]If you'd like a hand, ask on the radio, or talk to somebody.[/color]
-The [color=#dd0000]Valet[/color] or [color=#009933]Station Representative[/color] should be able to help, they're to the right of medbay.
+[color=#33bbff]Если вам нужна помощь — спросите по радио или поговорите с кем-нибудь.[/color]  
+[color=#dd0000]Дворецкий[/color] или [color=#009933]Представитель станции[/color], находящиеся справа от медбея, смогут вам помочь.
 
-## Economy
+## Экономика
   <Box>
     <GuideEntityEmbed Entity="ComputerBankATM"/>
     <GuideEntityEmbed Entity="SpaceCash1000"/>
     <GuideEntityEmbed Entity="ComputerShipyard"/>
   </Box>
-  Any money that you make is [bold]yours[/bold], and will be available in future shifts if deposited at a [color=#44cc00]Galactic Bank ATM[/color] on Frontier Outpost or Tinnia's Rest.
+  Все заработанные вами деньги — это [bold]ваша собственность[/bold], и они сохранятся в будущих сменах, если вы внесли их через [color=#44cc00]банкомат Галактического банка[/color] на форпосте Фронтира или станции «Отдых Тиннии».
 
-To make money, why not:
-- Join a ship's crew? Ask on the radio if anyone needs extra crew, and work to help your captain.
-- Get a job on station? Ask the [color=#009933]Station Representative[/color] (follow the SR signs) if anything needs doing.
-- Use a [color=#cccc00]shipyard console[/color] to purchase your own ship?
+Способы заработка:
+- Присоединитесь к экипажу корабля — спросите по радио, не нужен ли кому помощник, и помогайте капитану.
+- Устроитесь на станцию — спросите у [color=#009933]Представителя фронтира[/color] (следуйте указателям SR), есть ли какие-нибудь задачи.
+- Купите собственный корабль через [color=#cccc00]корабельную консоль[/color].
 
-## Amenities
+## Услуги
   <Box>
     <GuideEntityEmbed Entity="VendingMachineAstroVend"/>
     <GuideEntityEmbed Entity="VendingMachineAmmo"/>
     <GuideEntityEmbed Entity="MachineCryoSleepPod"/>
   </Box>
-  Some provisions (e.g. air tanks, salvage equipment) are available from vendors on Frontier Outpost, but most amenities (medical services, food) should be offered by players on shuttles or at the Trade Depot.
+  Некоторые припасы (например, баллоны с воздухом, снаряжение для утилизации) доступны через автоматы на форпосте Фронтира, но большинство услуг (медицина, еда) предоставляются другими игроками на шаттлах или в Торговом депо.
 
-Be sure to stock up at the Trade Depot if going out on an extended voyage, and take advantage of the [color=#33bbff]medical insurance tracker[/color] in your loadout, or from the NanoMed vendor in medbay.
+Если вы отправляетесь в долгое путешествие — обязательно закупитесь в Торговом депо и используйте [color=#33bbff]имплант медицинского страхования[/color] из вашего набора или купите его в автомате NanoMed в медбее.
 
-Shifts on the Frontier typically last for [color=#33bbff]six hours[/color].
-If you need to end your shift early or take a break, use the [color=#33bbff]cryo sleep chambers[/color] in the medbay on Frontier Outpost.
+Смена на Фронтире обычно длится около [color=#33bbff]шести часов[/color].  
+Если вам нужно закончить смену пораньше или отойти, воспользуйтесь [color=#33bbff]капсулой криосна[/color] в медбее на форпосте Фронтира.
 </Document>

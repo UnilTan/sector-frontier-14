@@ -4512,7 +4512,7 @@ entities:
     - type: Transform
       pos: -2.4974132,-0.70573306
       parent: 1
-- proto: WeaponTurretL85Autocannon
+- proto: Weapon20mmPD
   entities:
   - uid: 443
     components:

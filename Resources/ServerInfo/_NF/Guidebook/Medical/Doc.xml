@@ -1,30 +1,28 @@
-<Document>
+<ММОument>
   <Box>
-    <GuideEntityEmbed Entity="BannerMedical" Caption="Director of Care"/>
+    <GuideEntityEmbed Entity="BannerMedical" Caption="Директор по здравоохранению"/>
   </Box>
-  # Director of Care
+  # Директор по здравоохранению
 
-  DoC shift objectives:
+  Цели смены для ММО:
 
-  1) Ensure the health and well-being of the sector's populace.
+  1) Обеспечить здоровье и благополучие населения сектора.
 
-  2) Foster collaboration and coordinate efforts of medical teams where possible.
+  2) Содействовать сотрудничеству и координировать действия медицинских команд, где это возможно.
 
-  3) Encourage medical mentorship, either personally, time permitting, or by finding appropriate placement for interns.
+  3) Поощрять наставничество в медицине — лично, если позволяет время, или путём назначения интернов в подходящие места.
 
-  4) Compensate medical teams for their work in assisting with the above three goals.
+  4) Вознаграждать медицинские команды за их вклад в достижение вышеуказанных целей.
 
-  ## Your Ledger
+  ## Ваш бюджет
 
-  To compensate medical teams and station staff you have been provided a discretionary fund.
+  Для вознаграждения медицинских команд и персонала станции вам предоставлен дискреционный фонд.
 
-  Nanotrasen is prepared to provide additional resources for the successful return of each medical bounty.
+  NanoTrasen готова предоставить дополнительные ресурсы за успешное выполнение каждого медицинского задания.
 
-  ## The Medical Dispatch Center
+  ## Медицинский диспетчерский центр
 
-  As a new DoC, the maintenance of the Medical Dispatch Center is one of your responsibilities. Consider hiring contractors as needed to ensure it is kept in good working order.
+  Как новый ММО, вы несёте ответственность за поддержание диспетчерского центра медицины в рабочем состоянии. Рассмотрите возможность найма подрядчиков по мере необходимости.
 
-  The shift DoC is not expected to remain at the Medical Dispatch Center. You are encouraged to be present where needed and act in a capacity that best fulfills your primary goals.
-
-</Document>  
-
+  От ММО не требуется постоянно находиться в диспетчерском центре. Вы поощряетесь быть там, где вы нужнее всего, и действовать в роли, максимально соответствующей вашим основным целям.
+</ММОument>

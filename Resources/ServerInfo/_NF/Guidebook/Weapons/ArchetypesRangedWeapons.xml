@@ -1,7 +1,7 @@
-<Document>
-  # Ranged Weapon Archetypes
+<<Document>
+  # Архетипы оружия дальнего боя
 
-  Generally, weapons available on Frontier are split into 10 distinct categories: Pistols, Machine Pistols, SMG, Revolvers, Shotguns, Rifles, Assault Rifles, Sniper Rifles, Launchers (mirrored for energy weapons) with defined effective ranges, fire modes and rates of fire.
+  В общем, оружие, доступное на Фронтире, делится на 10 различных категорий: Пистолеты, Автоматические пистолеты, ПП, Револьверы, Дробовики, Винтовки, Штурмовые винтовки, Снайперские винтовки, Гранатомёты (зеркально для энергетического оружия), каждая из которых имеет определённую эффективную дальность, режимы стрельбы и скорострельность.
 
   <Table Columns="6">
     <ColorBox Color="#a88b5e">
@@ -375,7 +375,6 @@
     </ColorBox>
   </Table>
 
-  * - Effective range here is defined as follows: maximum distance at which the weapon is guaranteed to hit a tile-wide target with the weapons first shot; subsequent shots made in short succession are not guaranteed to hit the same target but have a decently high chance of hitting.
+  * - Эффективная дальность здесь определяется как: максимальная дистанция, на которой оружие гарантированно попадёт по цели размером с одну плитку при первом выстреле. Последующие выстрелы, сделанные сразу после, не гарантируют попадание, но имеют высокую вероятность.
 
 </Document>
-

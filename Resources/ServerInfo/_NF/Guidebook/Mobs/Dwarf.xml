@@ -1,11 +1,11 @@
 <Document>
-  # Dwarves
+  # Дворфы
 
   <Box>
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  An industrious species, dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it.
+  Трудолюбивый вид, дворфы во многом похожи на людей, но лучше переносят алкоголь и исцеляются им.
 
   <Box>
     <GuideEntityEmbed Entity="WallRockChromiteDiamond" Caption=""/>
@@ -13,6 +13,5 @@
     <GuideEntityEmbed Entity="NFWallRockBluespace" Caption=""/>
   </Box>
 
-  A dwarf instinctively knows where the choice ore veins are on any rock, and can sense the presence of ore up to 5 meters away.
-
+  Дворф инстинктивно чувствует, где находятся ценные жилы руды в любой породе, и способен ощущать их наличие на расстоянии до 5 метров.
 </Document>

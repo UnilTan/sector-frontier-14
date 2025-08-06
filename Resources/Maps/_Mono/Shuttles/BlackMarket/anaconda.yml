@@ -5619,7 +5619,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-25.5
       parent: 1
-- proto: WeaponTurretL85Autocannon
+- proto: Weapon20mmPD
   entities:
   - uid: 853
     components:

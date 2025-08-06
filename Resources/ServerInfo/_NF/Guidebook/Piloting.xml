@@ -1,35 +1,45 @@
 <Document>
-  # Piloting
+  # Пилотирование
   <Box>
     <GuideEntityEmbed Entity="ComputerShuttle"/>
   </Box>
-  To move a shuttle, you first need to click on the [color=#a4885c]shuttle console[/color] in its cockpit. After clicking the shuttle console, you should see a radar view of the space around your shuttle.
+  Чтобы управлять шаттлом, сначала нажмите на [color=#a4885c]консоль шаттла[/color] в кабине. После этого вы увидите радар с отображением пространства вокруг шаттла.
 
-Newly purchased shuttles start docked with Frontier Outpost. To undock, follow these steps:
+Новые шаттлы после покупки находятся у форпоста Фронтира. Чтобы отстыковаться, выполните следующие шаги:
 
-- Tell people you are undocking using the traffic radio channel ([color=#CC6633]:d[/color]). Include your ship's callsign, which can be found on the NAV screen (e.g. "[color=#CC6633]:d Pioneer NX-123 undocking.[/color]")
-- Click on the DOCK tab, disconnect any airlocks that are docked to the station.
-- Return to the NAV tab.
+- Сообщите по радиоканалу движения ([color=#CC6633]:d[/color]), что вы отстыковываетесь. Укажите позывной корабля, он отображён на экране навигации (например: "[color=#CC6633]:d Pioner NX-123 отстыковывается.[/color]").
+- Перейдите во вкладку DOCK и отключите все шлюзы, состыкованные со станцией.
+- Вернитесь во вкладку NAV.
 
-- To move a shuttle, the default controls (for a QWERTY keyboard) are:
+Для управления шаттлом (раскладка QWERTY по умолчанию):
+- [color=#028ed9][keybind="ShuttleStrafeUp"/][/color] и [color=#028ed9][keybind="ShuttleStrafeDown"/][/color]: движение вперёд и назад.
+- [color=#028ed9][keybind="ShuttleStrafeLeft"/][/color] и [color=#028ed9][keybind="ShuttleStrafeRight"/][/color]: движение влево и вправо.
+- [color=#028ed9][keybind="ShuttleRotateLeft"/][/color] и [color=#028ed9][keybind="ShuttleRotateRight"/][/color]: поворот влево и вправо.
+- [color=#028ed9][keybind="ShuttleBrake"/][/color]: торможение.
+- [color=#028ed9][keybind="ShuttleBrake"/][/color] + любое направление: медленное движение и вращение.
 
--[color=#028ed9][keybind="ShuttleStrafeUp"/][/color] & [color=#028ed9][keybind="ShuttleStrafeDown"/][/color]: Move forward and backward.
--[color=#028ed9][keybind="ShuttleStrafeLeft"/][/color] & [color=#028ed9][keybind="ShuttleStrafeRight"/][/color]: Move left and right.
--[color=#028ed9][keybind="ShuttleRotateLeft"/][/color] & [color=#028ed9][keybind="ShuttleRotateRight"/][/color]: Rotate left and right.
--[color=#028ed9][keybind="ShuttleBrake"/][/color]: Slow down.
--[color=#028ed9][keybind="ShuttleBrake"/][/color] + [color=#028ed9]any input[/color]: Move and rotate slowly.
+Управление радаром
 
-# Docking
+Чтобы создать метку на радаре:
+- Введите первую и вторую координату.
+- Нажмите кнопку [color=lightgreen][bold]Mark Point[/bold][/color] — появится точка на радаре.
+
+Если хотите временно скрыть метку:
+- Нажмите кнопку [color=orange][bold]Hide Point[/bold][/color] — метка исчезнет с экрана, но не будет удалена.
+
+Используйте точки, чтобы отмечать важные объекты, координаты спасения или цели миссии.
+
+# Стыковка
   <Box>
     <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
   </Box>
-  [bold]Before docking your ship with:[/bold]
-- [bold][color=#979797]Another ship[/color][/bold], it is best practice to announce your intention to dock over the traffic channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffd700]Frontier Outpost[/color][/bold], stop 200m out, request permission to dock from the Station Traffic Controller (STC) over the traffic radio channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffa500]Another station[/color][/bold], docks are first come, first serve. Be courteous and leave space where possible.
+  [bold]Перед стыковкой вашего корабля с:[/bold]
+- [bold][color=#979797]другим кораблём[/color][/bold]: желательно заранее сообщить об этом по радиоканалу движения ([color=#CC6633]:d[/color]).
+- [bold][color=#ffd700]форпостом Фронтира[/color][/bold]: остановитесь на расстоянии 200 м и запросите разрешение на стыковку у диспетчера движения станции (STC) по каналу ([color=#CC6633]:d[/color]).
+- [bold][color=#ffa500]другой станцией[/color][/bold]: стыковка осуществляется в порядке живой очереди. Соблюдайте вежливость и по возможности оставляйте место для других.
 
-To dock the ship:
-- Pilot towards the target so a set of its airlocks are nearby a set of airlocks of the target.
-- When very close, click on the DOCK tab for a closer view.
-- When next to the airlock, you can click "Dock" when highlighted to attach to the target.
+Чтобы состыковаться:
+- Подведите корабль к цели так, чтобы набор его шлюзов оказался рядом со шлюзами цели.
+- Когда будете совсем близко, перейдите во вкладку DOCK для детального вида.
+- При приближении к шлюзу нажмите "Dock", когда появится подсветка, чтобы закрепиться.
 </Document>

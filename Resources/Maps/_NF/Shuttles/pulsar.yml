@@ -4043,7 +4043,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: ShuttleWindow
+- proto: ReinforcedWindow
   entities:
   - uid: 21
     components:
@@ -4662,7 +4662,7 @@ entities:
     - type: Transform
       pos: -2.5,2.5
       parent: 1
-- proto: WallShuttle
+- proto: WallReinforced
   entities:
   - uid: 5
     components:
@@ -4910,7 +4910,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-10.5
       parent: 1
-- proto: WallShuttleDiagonal
+- proto: WallReinforcedDiagonal
   entities:
   - uid: 2
     components:
@@ -5010,7 +5010,7 @@ entities:
     - type: Transform
       pos: -4.5,8.5
       parent: 1
-- proto: WallShuttleInterior
+- proto: WallReinforcedInterior
   entities:
   - uid: 17
     components:
