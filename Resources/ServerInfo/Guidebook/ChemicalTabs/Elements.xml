@@ -1,8 +1,9 @@
 <Document>
-# Foods
 
-These reagents are mostly used in the kitchen. Very helpful for Chefs and/or Service Workers.
+# Elements
 
-<GuideReagentGroupEmbed Group="Foods"/>
+This list contains all the basic reagents used to make other chemicals.
+
+<GuideReagentGroupEmbed Group="Elements"/>
 
 </Document>

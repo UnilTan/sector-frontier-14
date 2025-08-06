@@ -6175,7 +6175,7 @@ entities:
     - type: Transform
       pos: -0.5,-2.5
       parent: 1
-- proto: Weapon20mmPD
+- proto: WeaponTurretL85Autocannon
   entities:
   - uid: 867
     components:

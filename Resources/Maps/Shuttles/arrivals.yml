@@ -2339,7 +2339,7 @@ entities:
     - Construction
     - Anchorable
     - Destructible
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 28
     components:
@@ -2806,7 +2806,7 @@ entities:
     missingComponents:
     - Destructible
     - Anchorable
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 1
     components:

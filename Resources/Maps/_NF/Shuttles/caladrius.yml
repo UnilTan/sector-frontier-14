@@ -14528,7 +14528,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: SolidReinforcedSecretDoor
+- proto: ShuttleSecretDoor
   entities:
   - uid: 967
     components:
@@ -14553,7 +14553,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -7.5,-7.5
       parent: 1
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 8
     components:
@@ -14918,7 +14918,7 @@ entities:
     - type: Transform
       pos: -3.5,-1.5
       parent: 1
-- proto: ReinforcedWindowDiagonal
+- proto: ShuttleWindowDiagonal
   entities:
   - uid: 10
     components:
@@ -16877,7 +16877,7 @@ entities:
     - type: Transform
       pos: 1.5,-17.5
       parent: 1
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 14
     components:
@@ -17918,7 +17918,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-2.5
       parent: 1
-- proto: WallReinforcedDiagonal
+- proto: WallShuttleDiagonal
   entities:
   - uid: 58
     components:
@@ -18095,7 +18095,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,-15.5
       parent: 1
-- proto: WallReinforcedInterior
+- proto: WallShuttleInterior
   entities:
   - uid: 25
     components:

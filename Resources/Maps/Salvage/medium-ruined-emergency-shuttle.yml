@@ -571,7 +571,7 @@ entities:
       parent: 130
     - type: Physics
       canCollide: False
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 32
     components:
@@ -694,7 +694,7 @@ entities:
     - type: Transform
       pos: -0.5,-5.5
       parent: 130
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 3
     components:

@@ -1,7 +1,5 @@
 <Document>
-  # Прочее
-
-  Здесь перечислены прочие реагенты, указанные в разделе Химикаты.
-
-  <GuideReagentGroupEmbed Group="Unknown"/>
+# Other
+These are the other regeants listed in the Chemicals page.
+<GuideReagentGroupEmbed Group="Unknown"/>
 </Document>

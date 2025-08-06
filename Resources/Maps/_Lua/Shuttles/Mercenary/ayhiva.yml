@@ -4518,7 +4518,7 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 75
     components:
@@ -4604,7 +4604,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,1.5
       parent: 1
-- proto: ReinforcedWindowDiagonal
+- proto: ShuttleWindowDiagonal
   entities:
   - uid: 39
     components:
@@ -5096,7 +5096,7 @@ entities:
     - type: Transform
       pos: -6.5,9.5
       parent: 1
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 2
     components:
@@ -5640,7 +5640,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,8.5
       parent: 1
-- proto: WallReinforcedDiagonal
+- proto: WallShuttleDiagonal
   entities:
   - uid: 4
     components:
@@ -5935,7 +5935,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,14.5
       parent: 1
-- proto: WallReinforcedInterior
+- proto: WallShuttleInterior
   entities:
   - uid: 541
     components:
@@ -5983,7 +5983,7 @@ entities:
     - type: Transform
       pos: -12.5,11.5
       parent: 1
-- proto: Weapon20mmPD
+- proto: WeaponTurretL85Autocannon
   entities:
   - uid: 670
     components:

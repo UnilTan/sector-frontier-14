@@ -3930,7 +3930,7 @@ entities:
     - type: Transform
       pos: -2.5,4.5
       parent: 1
-- proto: Weapon20mmPD
+- proto: WeaponTurretL85Autocannon
   entities:
   - uid: 552
     components:

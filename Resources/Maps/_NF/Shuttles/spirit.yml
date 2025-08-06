@@ -1227,7 +1227,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,3.5
       parent: 1
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 32
     components:
@@ -1265,7 +1265,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,3.5
       parent: 1
-- proto: ReinforcedWindowDiagonal
+- proto: ShuttleWindowDiagonal
   entities:
   - uid: 33
     components:
@@ -1449,7 +1449,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-3.5
       parent: 1
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 9
     components:
@@ -1551,7 +1551,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-2.5
       parent: 1
-- proto: WallReinforcedDiagonal
+- proto: WallShuttleDiagonal
   entities:
   - uid: 79
     components:
@@ -1582,7 +1582,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-2.5
       parent: 1
-- proto: WallReinforcedInterior
+- proto: WallShuttleInterior
   entities:
   - uid: 86
     components:

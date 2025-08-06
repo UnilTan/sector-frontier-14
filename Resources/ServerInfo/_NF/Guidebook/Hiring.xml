@@ -1,23 +1,22 @@
 <Document>
-  # Найм экипажа
+  # Hiring Crew
   <Box>
     <GuideEntityEmbed Entity="ComputerStationRecords"/>
-    <GuideEntityEmbed Entity="ClothingHeadsetGrey" Caption="гарнитура"/>
+    <GuideEntityEmbed Entity="ClothingHeadsetGrey" Caption="headset"/>
     <GuideEntityEmbed Entity="IntercomCommon"/>
   </Box>
+  As the Captain of a Nanotrasen vessel, you have the authority to hire and fire crew members, and to delegate work.
+There are two ways to hire crew:
+- Use the [color=#a4885c]station records computer[/color] on your ship to open crew slots. Players that join later can interview as holograms to join your ship.
+- Invite other players to join your crew through in-game communications.
 
-  В качестве капитана судна NanoTrasen вы имеете полномочия нанимать и увольнять членов экипажа, а также делегировать задачи.
+Crew membership is informal - you don't need to sign any forms, but feel free to roleplay!
+It's a good idea to make sure your crew understand:
+- What you expect of them (What tasks should they do? Who do they report to or work with?)
+- What they can expect from you (An hourly wage? A split of rewards? The promise of adventure?).
 
-  Существует два способа набрать экипаж:
-  - Используйте [color=#a4885c]компьютер личных дел[/color] на своём корабле, чтобы открыть вакансии. Позже к вам смогут присоединиться игроки, появляясь в виде голограмм и проходя собеседование.
-  - Пригласите других игроков вступить в экипаж через внутриигровую связь.
+As a Captain, remember:
+- You're responsible for the well-being of your crew.
+- A Captain's only as good as their word!
 
-  Формального оформления не требуется — можете импровизировать и отыгрывать как хотите!  
-  Главное — дайте понять команде:
-  - Чего вы от них ожидаете (Какие обязанности? Кому подчиняются? С кем работают?)
-  - Чего они могут ожидать от вас (Почасовая оплата? Доля от прибыли? Приключения?)
-
-  В роли капитана помните:
-  - Вы отвечаете за благополучие своего экипажа.
-  - Ценность капитана — в его слове!
 </Document>

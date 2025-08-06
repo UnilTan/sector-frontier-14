@@ -1858,7 +1858,7 @@ entities:
     - type: Transform
       pos: -0.4732375,3.615672
       parent: 1
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 214
     components:
@@ -2056,7 +2056,7 @@ entities:
     - type: Transform
       pos: 7.5,7.5
       parent: 1
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 238
     components:

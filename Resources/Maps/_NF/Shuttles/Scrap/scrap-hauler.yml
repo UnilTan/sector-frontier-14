@@ -3678,14 +3678,14 @@ entities:
     - type: Transform
       pos: -3.5,29.5
       parent: 1
-- proto: SolidReinforcedSecretDoor
+- proto: ShuttleSecretDoor
   entities:
   - uid: 902
     components:
     - type: Transform
       pos: -3.5,-0.5
       parent: 1
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 20
     components:
@@ -4270,7 +4270,7 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 1
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 4
     components:
@@ -4851,7 +4851,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-2.5
       parent: 1
-- proto: WallReinforcedDiagonal
+- proto: WallShuttleDiagonal
   entities:
   - uid: 37
     components:

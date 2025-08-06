@@ -1,46 +1,46 @@
 <Document>
 
-  # Предотвращение контрабанды
+  # Smuggling Prevention
 
-  Как офицер ДСБФ, часть вашей работы — предотвращать контрабанду.
+  As an officer in the NFSD, part of your job is to prevent smuggling.
 
-  Контрабандисты используют [color=#9ef5ff]тайники[/color], объекты, в которых Синдикат оставляет записки с указаниями на расположение [color=#c4261d]контейнеров сброса[/color], наполненных контрабандой.
+  Smugglers use [color=#9ef5ff]dead drops[/color], objects where the Syndicate leaves notes with clues to the location of [color=#c4261d]drop pods[/color] filled with contraband.
+  
+  Remember: 
+  - These are spread across the seedier points of interest across the sector.
+  - Use any clue you might find lying around.
+  - Ask around to see if the public's seen suspicious activity.
+  - Be on the lookout for strange traffic patterns.
 
-  Помните:
-  - Эти объекты разбросаны по сомнительным точкам интереса в секторе.
-  - Используйте любые улики, которые вы найдёте поблизости.
-  - Расспрашивайте окружающих — возможно, кто-то видел что-то подозрительное.
-  - Обращайте внимание на странные маршруты передвижения.
-
-  Как офицеры ДСБФ, вы обязаны не только предотвращать контрабанду, но и ловить контрабандистов с поличным.
-
-  Поддерживайте монополию NanoTrasen на торговлю в секторе ради безопасного будущего.
+  As NFSD officers, part of your job is to prevent smuggling, and to catch smugglers in the act.
+  
+  Keep Nanotrasen's monopoly on commerce in the sector strong, for a secure future.
 
   <Box>
-    <GuideEntityEmbed Entity="CrateTradeContrabandSecure1" Caption="контрабандный ящик"/>
+    <GuideEntityEmbed Entity="CrateTradeContrabandSecure1" Caption="contraband crate"/>
   </Box>
 
-  ## Уведомления
+  ## Notifications
 
-  Когда записка извлекается из [color=#9ef5ff]тайника[/color], в сектор телепортируется [color=#c4261d]контейнер сброса[/color]. Этот [color=#c4261d]контейнер сброса[/color] содержит груз, часть которого является контрабандой, которую часто продают с прибылью.
+  When a note is taken from a [color=#9ef5ff]dead drop[/color], a [color=#c4261d]drop pod[/color] is teleported into the sector. This [color=#c4261d]drop pod[/color] contains cargo, some of it contraband, and these illicit goods tend to be sold for profit.
 
-  Благодаря передовым блюспейс-технологиям NanoTrasen, [bold]мы получаем сигнатуры, когда эти записки изымаются[/bold] и с небольшой задержкой можем получить [bold]примерное местоположение [color=#c4261d]контейнера сброса[/color][/bold].
+  With cutting-edge Nanotrasen bluespace technology, [bold]we can get signatures when these notes are taken[/bold], and, with some delay, get [bold]the approximate location of a [color=#c4261d]drop pod[/color][/bold].
 
-  Из-за природы блюспейса [bold]эти уведомления не всегда точны[/bold], но это не повод для бездействия. Оставайтесь начеку.
+  Due to the nature of bluespace, [bold]these notifications are not completely reliable[/bold], but that is no excuse for laziness. Remain vigilant.
 
-  ## Судебная экспертиза
+  ## Forensics
 
-  В качестве стимула к борьбе с контрабандой и поимке контрабандистов, [color=#5d8c45]анализатор контрабанды[/color] входит в стандартное снаряжение детектива. [bold]Использование этого оборудования приносит награду вашему отделу за хорошую работу на месте.[/bold]
+  As an incentive to prevent smuggling and catch active smugglers, a [color=#5d8c45]contraband forensics module[/color] comes standard in a Detective's gear. [bold]Using these rewards your department for good field work[/bold].
 
-  [color=#5d8c45]Сканирование[/color] активных или использованных ранее [color=#9ef5ff]тайников[/color] и [color=#c4261d]контейнеров сброса[/color] Синдиката переводит на счёт ДСБФ спесос и ТК. ТК выдаются офицеру, который производил сканирование, после накопления определённого количества.
+  [color=#5d8c45]Scanning[/color] active or previously used [color=#9ef5ff]dead drops[/color], and Syndicate [color=#c4261d]drop pods[/color] credits the NFSD's bank with spesos and FUCs. FUCs will be paid out to the scanning officer when enough have been collected.
 
-  [bold]Вы получите больше наград, если доберётесь до [color=#9ef5ff]тайника[/color] первым, так что поспешите![/bold]
+  [bold]You get bigger rewards by being the first to a [color=#9ef5ff]dead drop[/color], so get moving![/bold]
 
   <Box>
-    <GuideEntityEmbed Entity="ContrabandForensicsModule" Caption="анализатор контрабанды"/>
+    <GuideEntityEmbed Entity="ContrabandForensicsModule" Caption="forensics module"/>
     <GuideEntityEmbed Entity="FrontierUplinkCoin"/>
   </Box>
 
-  [bold]Не забывайте использовать найденную ДНК, чтобы отследить и привлечь контрабандистов к ответственности.[/bold] Это одна из ваших прямых обязанностей как офицера ДСБФ — обеспечивать легальность торговли в секторе.
+  [bold]Remember to use any DNA you find to track down and prosecute the smugglers.[/bold] It is one of your duties as an NFSD officer to keep sector commerce legal.
 
 </Document>

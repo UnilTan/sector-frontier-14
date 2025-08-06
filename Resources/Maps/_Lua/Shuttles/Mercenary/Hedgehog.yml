@@ -705,7 +705,7 @@ entities:
     - type: DeviceLinkSink
       links:
       - 103
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 6
     components:
@@ -913,7 +913,7 @@ entities:
       parent: 1
     - type: Thruster
       originalPowerLoad: 1500
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 3
     components:
@@ -995,7 +995,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-5.5
       parent: 1
-- proto: WallReinforcedDiagonal
+- proto: WallShuttleDiagonal
   entities:
   - uid: 2
     components:

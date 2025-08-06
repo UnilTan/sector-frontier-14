@@ -1,7 +1,8 @@
 <Document>
-## Список медицинских рецептов
+## Medical Recipe List
 
-Этот список формируется автоматически и содержит все известные рецепты для медицинского сборщика.
+This list is auto-generated and contains all known recipes for the medical assembler.
 
 <GuideMedicalGroupEmbed/>
+
 </Document>

@@ -1,35 +1,36 @@
 <Document>
-# Медицинские награды
+# Medical Bounties
 
-Космос в Фронтире полон опасностей, и поэтому NanoTrasen запустила инициативу поощрения за спасение, лечение и транспортировку ценных тел обратно в медицинские учреждения на внутренних мирах.
+With space being as dangerous as it is on the Frontier, NT has created an initiative to reward retrieving, healing, and transporting valuable corpses back to medical facilities on inner worlds.
 
-Помните, 70% вашей ценности — в вашей биогенетической интеллектуальной собственности!
+Remember, 70% of your value is in your biogenetic IP!
 
-## Поиск наград
+## Finding Bounties
 
 <Box>
 <GuideEntityEmbed Entity="MedicalPod"/>
 </Box>
 
-Эти спасательные капсулы можно найти на [color=#88b0d1]обломках кораблей[/color]. Каждая экстренная капсула оснащена [color=#ffff00]мигающими индикаторами[/color]. Их видно даже в темноте, а также на боковой панели расположен [color=#80b9c4]анализатор здоровья[/color].
+These life-saving emergency pods can be found on [color=#88b0d1]ship wreckage[/color]. Each emergency pod comes equipped with [color=#ffff00]blinking indicators[/color]. You can see these at a glance in the dark, and they have an distinct [color=#80b9c4]health analyzer[/color] display on the side.
 
-Как правило, эти капсулы закреплены на корабле, но они [bold]тяжёлые[/bold]. При необходимости обитателя капсулы можно быстро извлечь и эвакуировать. Помните, они по-прежнему уязвимы к баротравме.
+These pods tend to be anchored to their ship, but they are [bold]heavy[/bold]. If needed, the occupant can be ejected and brought into safety quickly. Remember, they're still vulnerable to barotrauma.
 
-## Извлечение наград
+## Recovering Bounties
 
-Для безопасной транспортировки тел, [bold]прежде чем награда может быть засчитана, пациент должен быть возвращён к жизни[/bold]. Убедитесь, что тело живо, стабильно и дышит. [color=#00ffff]Криогенные[/color] препараты, используемые в крио-капсулах, рекомендуются при тяжёлых травмах — это эффективно с точки зрения расхода ресурсов.
+In order to safely transport the bodies, [bold]before the bounty can be redeemed, they must first be resuscitated back to health[/bold].  Ensure that the body is alive, stable and breathing. [color=#00ffff]Cryogenic[/color] medications used in cryo pods are recommended for cases with extreme damage for efficient use of resources.
 
-## Получение награды
+## Claiming Bounties
 
-После стабилизации пациента он, скорее всего, останется в кататоническом состоянии. Не беспокойтесь — это нормально, и вас не привлекут за халатность.
+Once the bountied asset is stable, they'll likely remain in a catatonic state. Don't worry, this is normal, and you will not be held liable for malpractice.
 
-Когда будете готовы получить награду, верните пациента к ближайшему [color=#469bbd]устройству приёма тел[/color]. Просто поместите оживлённого пациента внутрь. [color=#d40606]Оба индикатора[/color] должны гореть. Откройте панель на устройстве, нажмите кнопку "Redeem" и получите заслуженные спеcо.
+When you are ready to redeem the bounty, return the asset to the nearest [color=#469bbd]body retrieval unit[/color]. Simply insert the revived asset into the unit. [color=#d40606]Both lights[/color] should be on. Open the panel on the unit and hit the "Redeem" button, and enjoy the hard-earned spesos.
 
 <Box>
 <GuideEntityEmbed Entity="MachineMedicalBountyRedemption"/>
 </Box>
 
-## История
+## History
 
-С 2472 года инициативы по обеспечению безопасности внутри NanoTrasen способствовали созданию спасательных медицинских капсул LifeSavior, предназначенных для катастроф на станциях и шаттлах. Эта программа была закрыта два года назад под давлением из-за необоснованных заявлений, что число погибших в капсулах превышало число спасённых в соотношении 5:1.
+Starting in 2472, safety initiatives within Nanotrasen promoted the creation of LifeSavior emergency medical pods, for use in catastrophic incidents aboard stations and shuttles. This initiative ended two years ago due to mounting pressure over unfounded, unprovable claims that emergency pod-based fatalities outnumbered saved lives by 5:1.
+
 </Document>

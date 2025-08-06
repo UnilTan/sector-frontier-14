@@ -3784,7 +3784,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: Weapon20mmPD
+- proto: WeaponTurretL85Autocannon
   entities:
   - uid: 511
     components:

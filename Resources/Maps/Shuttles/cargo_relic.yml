@@ -925,7 +925,7 @@ entities:
       parent: 173
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: ReinforcedWindow
+- proto: ShuttleWindow
   entities:
   - uid: 4
     components:
@@ -962,7 +962,7 @@ entities:
     - type: Transform
       pos: -10.5,0.5
       parent: 173
-- proto: ReinforcedWindowDiagonal
+- proto: ShuttleWindowDiagonal
   entities:
   - uid: 8
     components:
@@ -1077,7 +1077,7 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
-- proto: WallReinforced
+- proto: WallShuttle
   entities:
   - uid: 16
     components:

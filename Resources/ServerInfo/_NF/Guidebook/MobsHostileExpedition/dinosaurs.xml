@@ -1,171 +1,175 @@
 <Document>
-  # Динозавры
-
-  Загадочные гиганты из забытой эпохи, известные своим внушительным ростом и устрашающим присутствием. Похоже, что на некоторых далёких планетах природа пошла по тому же пути, что и на Земле.
-
-  Можно разделать на мясо и кости.
-
+  # Dinosaurs
+  
+  Enigmatic behemoths from a bygone era known for their imposing stature and formidable presence. It would seem that nature took the same path on some distant planets as it did on Earth.
+  
+  Can be butchered for meat and bones.
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Компсогнат»
-
-  Компсогнаты — мелкие двуногие плотоядные тероподы. У них длинные задние ноги и ещё более длинные хвосты, которые они используют для баланса при передвижении. Передние конечности малы, но будьте осторожны с их когтями.
-
+  
+  # Known Variants
+  # "Compsognathus"
+  
+  Compsognathus is a genus of small, bipedal, carnivorous theropods. They have long hind legs and longer tails, which they used for balance during locomotion. Their forelimbs are small but beware of their claws.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurCompyExpeditions"/>
   </Box>
-  - Порог здоровья: 50 (смерть)
-  - Скорость (бег/ходьба): 4.1 м/с (4.1 м/с)
-  - Урон: 8 [color=red]режущий[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.1 m/s (4.1 m/s)[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Slash[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
+  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Дилофозавр»
-
-  Название переводится как «двугребневый ящер». В длину достигает 7 метров и весит около 400 кг. Стройный и лёгкий, отличается высокой подвижностью.
-
+  
+  # "Dilophosaurus"
+  
+  With a name meaning "two-crested lizard", these measure in at about 7 m in length and 400 kg in weight. Slender and lightly built, these are very agile.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurDiloExpeditions"/>
   </Box>
-  - Порог здоровья: 50 (смерть)
-  - Скорость: 4.3 м/с
-  - Урон: 8 [color=red]режущий[/color], 2 [color=orange]кислотный[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.3 m/s (4.3 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Slash[/color], 2 [color=orange]Caustic[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Велоцираптор»
-
-  Двуногий, перьев не имеет, с длинным хвостом. На каждой задней лапе — увеличенный серповидный коготь, которым он захватывает и удерживает добычу. Очень быстрый — будьте осторожны.
-
+  
+  # "Velociraptor"
+  
+  A bipedal, featherless carnivore with a long tail. Each of its hindfeet has an enlarged sickle-shaped claw, which is used to tackle and restrain prey. Very fast, exercise caution.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurRaptorExpeditions"/>
   </Box>
-  - Порог здоровья: 80 (смерть)
-  - Скорость: 4.5 м/с
-  - Урон: 18 [color=red]режущий[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (4.5 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 18 [color=red]Slash[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Паразауролоф»
-
-  Крупный травоядный динозавр длиной более 9 метров и весом свыше 5 тонн. Может передвигаться как на двух, так и на четырёх конечностях. Довольно быстрый для своих размеров, но относительно хрупкий и слабый.
-
+  
+  # "Parasaurolophus"
+  
+  A large carnivore that can reach over 9 metres (30 ft) long and weigh over 5 metric tons (5.5 short tons), these can move on two legs or four. Reasonably fast for its size, but comparatively fragile and weak.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurParaExpeditions"/>
   </Box>
-  - Порог здоровья: 100 (смерть)
-  - Скорость: 4 м/с
-  - Урон: 6 [color=red]тупой[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 100 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=red]Blunt[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Кентрозавр»
-
-  Один из самых маленьких динозавров: длина около 4–4.5 м, вес — от 700 до 1600 кг. Удлинённая голова и клюв позволяют срывать растительность или отрывать конечности.
-
+  
+  # "Kentrosaurus"
+  
+  On the smaller side of dinosaurs, Kentrosaurus generally measure around 4–4.5 m, and weigh about 700–1,600 kg. Its elongated head and beak are used to bite off plant material or tear off limbs.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurKentroExpeditions"/>
   </Box>
-  - Порог здоровья: 150 (смерть)
-  - Скорость: 2.5 м/с
-  - Урон: 10 [color=red]тупой[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-    [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Трицератопс»
-
-  Огромный четвероногий динозавр с костяным воротником и тремя рогами на черепе — один из самых узнаваемых и известных цератопсов. Обычно старается пронзить врага своими рогами.
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 150 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 2.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 10 [color=red]Blunt[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
+  [bold][color=#a4885c]________________________________________________________________________[/color]
+  
+  # "Triceratops"
+  
+  Bearing a large bony frill with three horns on its skull, this massive quadruped is one of the most recognizable of all dinosaurs and the best-known ceratopsian. Typically tries to gore whatever it attacks.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurTrikeExpeditions"/>
   </Box>
-  - Порог здоровья: 200 (смерть)
-  - Скорость: 3 м/с
-  - Урон: 15 [color=yellow]колющий[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 200 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 3 m/s (3 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 15 [color=yellow]Piercing[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Анкилозавр»
-
-  Обычно длина составляет от 6 до 8 метров, а масса — от 4.8 до 8 тонн. Медлительное, но крайне живучее существо. Широкий череп и мощное тело выдерживают большие нагрузки, а хвост с массивной булавой может служить оружием.
-
+  
+  # "Ankylosaurus"
+  
+  Typically between between 6 and 8 meters long and between 4.8 and 8 tons in weight, this lumbering beast shouldn't be underestimated. Its wide, low skull and robust body can take a beating and still survive, and the large club on the end of its tail can be used as a weapon.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurAnkiExpeditions"/>
   </Box>
-  - Порог здоровья: 250 (смерть)
-  - Скорость: 2 м/с
-  - Урон: 8 [color=red]тупой[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 250 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 2 m/s (2 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 8 [color=red]Blunt[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Спинозавр»
-
-  Обычно достигает 14 метров в длину и 7.4 тонны массы. Имеет крепкие передние конечности с тремя пальцами, один из которых несёт увеличенный коготь. Удивительно проворен для своих размеров и способен выдержать много урона.
-
+  
+  # "Spinosaurus"
+  
+  With a typical length of 14 m and a mass of 7.4 tons, Spinosaurus has large, robust forelimbs. Each of its hands has three-fingers, with an enlarged claw on the first digit. Surprisingly quick for its size, this giant can take a lot of punishment.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurSpinoExpeditions"/>
   </Box>
-  - Порог здоровья: 350 (смерть)
-  - Скорость: 4.5 м/с
-  - Урон: 12 [color=red]тупой[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 350 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (4.5 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 12 [color=red]Blunt[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Стегозавр»
-
-  Крупное и массивное травоядное с округлой спиной, короткими передними и длинными задними конечностями. Держит хвост высоко. Медлителен, но смертельно опасен вблизи.
-
+  
+  # "Stegosaurus"
+  
+  Large and heavily built, these herbivorous quadrupeds have rounded backs, short fore limbs, long hind limbs, and tails held high in the air. Lumbering, but lethal up close.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurStegoExpeditions"/>
   </Box>
-  - Порог здоровья: 350 (смерть)
-  - Скорость: 2.5 м/с
-  - Урон: 12 [color=red]тупой[/color], 8 [color=yellow]колющий[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 350 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 2.5 m/s (2.5 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 12 [color=red]Blunt[/color], 8 [color=yellow]Piercing[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # «Тираннозавр»
-
-  Огромный теропод с массивной грудной клеткой и тяжёлым уравновешивающим хвостом. Несмотря на короткие передние лапы, они невероятно сильны и имеют по два когтя.
-
+  
+  # "Tyrannosaurus"
+  
+  A massive therapod, its giant thorax is balanced by a long, heavy tail. Relative to its large and powerful hind limbs, the forelimbs of Tyrannosaurus are short but incredible powerful for their size, and they have two clawed digits.
+  
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurTrexExpeditions"/>
   </Box>
-  - Порог здоровья: 450 (смерть)
-  - Скорость: 4.5 м/с
-  - Урон: 15 [color=red]тупой[/color], 10 [color=yellow]колющий[/color]
-  - Сопротивления: отсутствуют
-  - Особые способности: отсутствуют
-
+  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 450 (death)
+  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4.5 m/s (4.5 m/s)
+  - [bold][color=#a4885c]Damage (type):[/color][/bold] 15 [color=red]Blunt[/color], 10 [color=yellow]Piercing[/color]
+  - [bold][color=#a4885c]Damage resistances:[/color][/bold] none
+  - [bold][color=#a4885c]Special abilities:[/color][/bold] none
+  
   [bold][color=#a4885c]________________________________________________________________________[/color]
-
-  # Цели миссий
-  ## Устранение
+  
+  # Mission Objectives
+  ## Elimination
   <Box>
   <GuideEntityEmbed Entity="MobDinosaurTrexExpeditions"/>
   </Box>
-  Устраните крупное и опасное существо — [color=#a4885c]тираннозавра[/color] — в отведённые сроки, чтобы получить денежное вознаграждение.
-
-  ## Уничтожение
+  Eliminate a large and dangerous creature - a [color=#a4885c]tyrannosaurus[/color] within given time constraints to earn a monetary reward.
+  
+  ## Destruction
   <Box>
   <GuideEntityEmbed Entity="DinosaurEgg"/>
   </Box>
-  Уничтожьте определённое количество [color=#a4885c]яиц динозавра[/color] в отведённые сроки, чтобы получить денежное вознаграждение.
+  Destroy a certain amount of [color=#a4885c]dinosaur eggs[/color] within given time constraints to earn a monetary reward.
 </Document>
