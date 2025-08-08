@@ -188,6 +188,10 @@ public sealed partial class NFCargoSystem
                 var price = _pricing.GetPrice(ent);
                 if (price == 0)
                     continue;
+
+                // Apply dynamic demand-based price adjustment
+                price = _dynamicPricing.AdjustPriceForGrid(gridUid, ent, price);
+
                 toSell.Add(ent);
 
                 // Check for items that are immune to market modifiers
