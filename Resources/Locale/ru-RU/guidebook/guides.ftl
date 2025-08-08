@@ -1,151 +1,151 @@
-guide-entry-engineering = Инженерное дело
-guide-entry-construction = Строительство
-guide-entry-airlock-security = Улучшение шлюзов
-guide-entry-atmospherics = Атмосфера
-guide-entry-botany = Ботаника
-guide-entry-fires = Пожары и разгерметизации
-guide-entry-shuttle-craft = Шаттлостроение
-guide-entry-networking = Сетевые соединения
-guide-entry-network-configurator = Конфигуратор сетей
-guide-entry-access-configurator = Конфигуратор доступа
-guide-entry-power = Электропитание
-guide-entry-portable-generator = Портативные генераторы
-guide-entry-ame = Двигатель антиматерии (ДАМ)
-guide-entry-singularity = Сингулярный двигатель / Тесла
-guide-entry-teg = Термоэлектрический генератор (ТЭГ)
-guide-entry-rtg = РИТЭГ
-guide-entry-science = Научный отдел
-guide-entry-radio = Радиосвязь
-guide-entry-machine-upgrading = Улучшение оборудования
-guide-entry-cargo = Отдел снабжения
-guide-entry-cargo-bounties = Запросы отдела снабжения
-guide-entry-salvage = Утилизация обломков
-guide-entry-controls = Управление
-guide-entry-chemicals = Химические вещества
-guide-entry-elements = Элементы
-guide-entry-narcotics = Наркотики
-guide-entry-pyrotechnics = Пиротехника
-guide-entry-toxins = Токсины
-guide-entry-foods = Пищевые
-guide-entry-biological = Биологические
-guide-entry-others = Другие
-guide-entry-botanical = Ботанические
-guide-entry-jobs = Должности
-guide-entry-janitorial = Уборка станции
-guide-entry-bartender = Бармен
-guide-entry-chef = Шеф-повар
-guide-entry-foodrecipes = Рецепты еды
-guide-entry-medical = Медицинский отдел
-guide-entry-medicaldoctor = Врач
-guide-entry-chemist = Химик
-guide-entry-medicine = Медицина
+guide-entry-engineering = [color=#a4885c]Инженерное дело[/color]
+guide-entry-construction = [color=#a4885c]Строительство[/color]
+guide-entry-airlock-security = [color=#a4885c]Улучшение шлюзов[/color]
+guide-entry-atmospherics = [color=#a4885c]Атмосфера[/color]
+guide-entry-botany = [color=#a4885c]Ботаника[/color]
+guide-entry-fires = [color=#a4885c]Пожары и разгерметизации[/color]
+guide-entry-shuttle-craft = [color=#a4885c]Шаттлостроение[/color]
+guide-entry-networking = [color=#a4885c]Сетевые соединения[/color]
+guide-entry-network-configurator = [color=#a4885c]Конфигуратор сетей[/color]
+guide-entry-access-configurator = [color=#a4885c]Конфигуратор доступа[/color]
+guide-entry-power = [color=#a4885c]Электропитание[/color]
+guide-entry-portable-generator = [color=#a4885c]Портативные генераторы[/color]
+guide-entry-ame = [color=#a4885c]Двигатель антиматерии (ДАМ)[/color]
+guide-entry-singularity = [color=#a4885c]Сингулярный двигатель / Тесла[/color]
+guide-entry-teg = [color=#a4885c]Термоэлектрический генератор (ТЭГ)[/color]
+guide-entry-rtg = [color=#a4885c]РИТЭГ[/color]
+guide-entry-science = [color=#a4885c]Научный отдел[/color]
+guide-entry-radio = [color=#a4885c]Радиосвязь[/color]
+guide-entry-machine-upgrading = [color=#a4885c]Улучшение оборудования[/color]
+guide-entry-cargo = [color=#a4885c]Отдел снабжения[/color]
+guide-entry-cargo-bounties = [color=#a4885c]Запросы отдела снабжения[/color]
+guide-entry-salvage = [color=#a4885c]Утилизация обломков[/color]
+guide-entry-controls = [color=#a4885c]Управление[/color]
+guide-entry-chemicals = [color=#a4885c]Химические вещества[/color]
+guide-entry-elements = [color=#a4885c]Элементы[/color]
+guide-entry-narcotics = [color=#a4885c]Наркотики[/color]
+guide-entry-pyrotechnics = [color=#a4885c]Пиротехника[/color]
+guide-entry-toxins = [color=#a4885c]Токсины[/color]
+guide-entry-foods = [color=#a4885c]Пищевые[/color]
+guide-entry-biological = [color=#a4885c]Биологические[/color]
+guide-entry-others = [color=#a4885c]Другие[/color]
+guide-entry-botanical = [color=#a4885c]Ботанические[/color]
+guide-entry-jobs = [color=#a4885c]Должности[/color]
+guide-entry-janitorial = [color=#a4885c]Уборка станции[/color]
+guide-entry-bartender = [color=#a4885c]Бармен[/color]
+guide-entry-chef = [color=#a4885c]Шеф-повар[/color]
+guide-entry-foodrecipes = [color=#a4885c]Рецепты еды[/color]
+guide-entry-medical = [color=#a4885c]Медицинский отдел[/color]
+guide-entry-medicaldoctor = [color=#a4885c]Врач[/color]
+guide-entry-chemist = [color=#a4885c]Химик[/color]
+guide-entry-medicine = [color=#a4885c]Медицина[/color]
 guide-entry-brute =
-    Продвинутое лечение
-    механических повреждений
-guide-entry-botanicals = Ботаника
-guide-entry-cloning = Клонирование
-guide-entry-cryogenics = Криогеника
-guide-entry-survival = Выживание
-guide-entry-technologies = Технологии
-guide-entry-anomalous-research = Исследование аномалий
-guide-entry-command = Командование
-guide-entry-service = Сервис
-guide-entry-newplayer = Новичок? Вам сюда!
-guide-entry-charactercreation = Создание персонажа
-guide-entry-scanners-and-vessels = Сканеры и сосуды
-guide-entry-yourfirstcharacter = Ваш первый персонаж
-guide-entry-ape = М.А.К.А.К.
-guide-entry-xenoarchaeology = Ксеноархеология
-guide-entry-references = Таблицы и референсы
-guide-entry-drinks = Напитки
-guide-entry-artifact-reports = Отчёты об артефактах
-guide-entry-traversal-distorter = Поперечный искатель
-guide-entry-ss14 = Станции и смены
-guide-entry-robotics = Робототехника
-guide-entry-cyborgs = Киборги
-guide-entry-security = Безопасность станции
-guide-entry-forensics = Криминалистика
-guide-entry-defusal = Обезвреживание крупной бомбы
-guide-entry-pizza-recipes = Pizzas
-guide-entry-savory-recipes = Savory Foods
-guide-entry-bread-recipes = Breads
-guide-entry-breakfast-recipes = Breakfast Foods
-guide-entry-moth-recipes = Moth Foods
-guide-entry-pasta-recipes = Pastas & Noodles
-guide-entry-dessert-recipes = Desserts & Pastries
-guide-entry-soup-recipes = Soups & Stews
-guide-entry-pie-recipes = Pies & Tarts
-guide-entry-barsandcookies-recipes = Bars & Cookies
-guide-entry-cake-recipes = Cakes
-guide-entry-salad-recipes = Salads
-guide-entry-medicinal-recipes = Medicinal
-guide-entry-other-recipes = Other
-guide-entry-secret-recipes = Secret
-guide-entry-criminal-records = Криминальные записи
-guide-entry-species = Расы
-guide-entry-antagonists = Антагонисты
-guide-entry-nuclear-operatives = Ядерные оперативники
-guide-entry-traitors = Предатели
-guide-entry-zombies = Зомби
-guide-entry-revolutionaries = Революционеры
-guide-entry-minor-antagonists = Малые антагонисты
-guide-entry-wizard = Wizard
-guide-entry-space-ninja = Космический ниндзя
-guide-entry-rules = Правила сервера
-guide-entry-rules-core-only = Core Only Ruleset
-guide-entry-rules-lrp = Standard Ruleset
-guide-entry-rules-mrp = MRP Ruleset
-guide-entry-rules-role-types = Role Types
-guide-entry-rules-core = Core Rules
-guide-entry-rules-c1 = C1
-guide-entry-rules-c2 = C2
-guide-entry-rules-c3 = C3
-guide-entry-rules-c4 = C4
-guide-entry-rules-c5 = C5
-guide-entry-rules-c6 = C6
-guide-entry-rules-c7 = C7
-guide-entry-rules-c8 = C8
-guide-entry-rules-c9 = C9
-guide-entry-rules-c10 = C10
-guide-entry-rules-c11 = C11
-guide-entry-rules-c12 = C12
-guide-entry-rules-c13 = C13
-guide-entry-rules-c14 = C14
-guide-entry-rules-roleplay = Roleplay Rules
-guide-entry-rules-r1 = R1
-guide-entry-rules-r2 = R2
-guide-entry-rules-r3 = R3
-guide-entry-rules-r4 = R4
-guide-entry-rules-r5 = R5
-guide-entry-rules-r6 = R6
-guide-entry-rules-r7 = R7
-guide-entry-rules-r8 = R8
-guide-entry-rules-r9 = R9
-guide-entry-rules-r10 = R10
-guide-entry-rules-r11 = R11
-guide-entry-rules-r11-1 = R11-1
-guide-entry-rules-r11-2 = R11-2
-guide-entry-rules-r12 = R12
-guide-entry-rules-r13 = R13
-guide-entry-rules-r14 = R14
-guide-entry-rules-r15 = R15
-guide-entry-rules-silicon = Silicon Rules
-guide-entry-rules-s1 = S1
-guide-entry-rules-s2 = S2
-guide-entry-rules-s3 = S3
-guide-entry-rules-s4 = S4
-guide-entry-rules-s5 = S5
-guide-entry-rules-s6 = S6
-guide-entry-rules-s7 = S7
-guide-entry-rules-s8 = S8
-guide-entry-rules-s9 = S9
-guide-entry-rules-s10 = S10
-guide-entry-rules-space-law = Space Law
-guide-entry-rules-sl-crime-list = Crime List
-guide-entry-rules-sl-controlled-substances = Controlled Substances
-guide-entry-rules-sl-restricted-gear = Restricted Gear
-guide-entry-rules-sl-restricted-weapons = Restricted Weapons
-guide-entry-rules-ban-types = Ban Types
-guide-entry-rules-ban-durations = Ban Durations
-guide-entry-writing = Разметка письма
-guide-entry-glossary = Словарь терминов
+    [color=#a4885c]Продвинутое лечение[/color]
+    [color=#a4885c]механических повреждений[/color]
+guide-entry-botanicals = [color=#a4885c]Ботаника[/color]
+guide-entry-cloning = [color=#a4885c]Клонирование[/color]
+guide-entry-cryogenics = [color=#a4885c]Криогеника[/color]
+guide-entry-survival = [color=#a4885c]Выживание[/color]
+guide-entry-technologies = [color=#a4885c]Технологии[/color]
+guide-entry-anomalous-research = [color=#a4885c]Исследование аномалий[/color]
+guide-entry-command = [color=#a4885c]Командование[/color]
+guide-entry-service = [color=#a4885c]Сервис[/color]
+guide-entry-newplayer = [color=#a4885c]Новичок? Вам сюда![/color]
+guide-entry-charactercreation = [color=#a4885c]Создание персонажа[/color]
+guide-entry-scanners-and-vessels = [color=#a4885c]Сканеры и сосуды[/color]
+guide-entry-yourfirstcharacter = [color=#a4885c]Ваш первый персонаж[/color]
+guide-entry-ape = [color=#a4885c]М.А.К.А.К.[/color]
+guide-entry-xenoarchaeology = [color=#a4885c]Ксеноархеология[/color]
+guide-entry-references = [color=#a4885c]Таблицы и референсы[/color]
+guide-entry-drinks = [color=#a4885c]Напитки[/color]
+guide-entry-artifact-reports = [color=#a4885c]Отчёты об артефактах[/color]
+guide-entry-traversal-distorter = [color=#a4885c]Поперечный искатель[/color]
+guide-entry-ss14 = [color=#a4885c]Станции и смены[/color]
+guide-entry-robotics = [color=#a4885c]Робототехника[/color]
+guide-entry-cyborgs = [color=#a4885c]Киборги[/color]
+guide-entry-security = [color=#a4885c]Безопасность станции[/color]
+guide-entry-forensics = [color=#a4885c]Криминалистика[/color]
+guide-entry-defusal = [color=#a4885c]Обезвреживание крупной бомбы[/color]
+guide-entry-pizza-recipes = [color=#a4885c]Пиццы[/color]
+guide-entry-savory-recipes = [color=#a4885c]Закуски[/color]
+guide-entry-bread-recipes = [color=#a4885c]Хлеб[/color]
+guide-entry-breakfast-recipes = [color=#a4885c]Завтраки[/color]
+guide-entry-moth-recipes = [color=#a4885c]Блюда молей[/color]
+guide-entry-pasta-recipes = [color=#a4885c]Пасты и лапша[/color]
+guide-entry-dessert-recipes = [color=#a4885c]Десерты и выпечка[/color]
+guide-entry-soup-recipes = [color=#a4885c]Супы и рагу[/color]
+guide-entry-pie-recipes = [color=#a4885c]Пироги и тарталетки[/color]
+guide-entry-barsandcookies-recipes = [color=#a4885c]Батончики и печенье[/color]
+guide-entry-cake-recipes = [color=#a4885c]Торты[/color]
+guide-entry-salad-recipes = [color=#a4885c]Салаты[/color]
+guide-entry-medicinal-recipes = [color=#a4885c]Лечебные[/color]
+guide-entry-other-recipes = [color=#a4885c]Прочее[/color]
+guide-entry-secret-recipes = [color=#a4885c]Секретные[/color]
+guide-entry-criminal-records = [color=#a4885c]Криминальные записи[/color]
+guide-entry-species = [color=#a4885c]Расы[/color]
+guide-entry-antagonists = [color=#a4885c]Антагонисты[/color]
+guide-entry-nuclear-operatives = [color=#a4885c]Ядерные оперативники[/color]
+guide-entry-traitors = [color=#a4885c]Предатели[/color]
+guide-entry-zombies = [color=#a4885c]Зомби[/color]
+guide-entry-revolutionaries = [color=#a4885c]Революционеры[/color]
+guide-entry-minor-antagonists = [color=#a4885c]Малые антагонисты[/color]
+guide-entry-wizard = [color=#a4885c]Волшебник[/color]
+guide-entry-space-ninja = [color=#a4885c]Космический ниндзя[/color]
+guide-entry-rules = [color=#a4885c]Правила сервера[/color]
+guide-entry-rules-core-only = [color=#a4885c]Только базовые правила[/color]
+guide-entry-rules-lrp = [color=#a4885c]Стандартный свод правил[/color]
+guide-entry-rules-mrp = [color=#a4885c]Свод правил MRP[/color]
+guide-entry-rules-role-types = [color=#a4885c]Типы ролей[/color]
+guide-entry-rules-core = [color=#a4885c]Основные правила[/color]
+guide-entry-rules-c1 = [color=#a4885c]C1[/color]
+guide-entry-rules-c2 = [color=#a4885c]C2[/color]
+guide-entry-rules-c3 = [color=#a4885c]C3[/color]
+guide-entry-rules-c4 = [color=#a4885c]C4[/color]
+guide-entry-rules-c5 = [color=#a4885c]C5[/color]
+guide-entry-rules-c6 = [color=#a4885c]C6[/color]
+guide-entry-rules-c7 = [color=#a4885c]C7[/color]
+guide-entry-rules-c8 = [color=#a4885c]C8[/color]
+guide-entry-rules-c9 = [color=#a4885c]C9[/color]
+guide-entry-rules-c10 = [color=#a4885c]C10[/color]
+guide-entry-rules-c11 = [color=#a4885c]C11[/color]
+guide-entry-rules-c12 = [color=#a4885c]C12[/color]
+guide-entry-rules-c13 = [color=#a4885c]C13[/color]
+guide-entry-rules-c14 = [color=#a4885c]C14[/color]
+guide-entry-rules-roleplay = [color=#a4885c]Правила ролевой игры[/color]
+guide-entry-rules-r1 = [color=#a4885c]R1[/color]
+guide-entry-rules-r2 = [color=#a4885c]R2[/color]
+guide-entry-rules-r3 = [color=#a4885c]R3[/color]
+guide-entry-rules-r4 = [color=#a4885c]R4[/color]
+guide-entry-rules-r5 = [color=#a4885c]R5[/color]
+guide-entry-rules-r6 = [color=#a4885c]R6[/color]
+guide-entry-rules-r7 = [color=#a4885c]R7[/color]
+guide-entry-rules-r8 = [color=#a4885c]R8[/color]
+guide-entry-rules-r9 = [color=#a4885c]R9[/color]
+guide-entry-rules-r10 = [color=#a4885c]R10[/color]
+guide-entry-rules-r11 = [color=#a4885c]R11[/color]
+guide-entry-rules-r11-1 = [color=#a4885c]R11-1[/color]
+guide-entry-rules-r11-2 = [color=#a4885c]R11-2[/color]
+guide-entry-rules-r12 = [color=#a4885c]R12[/color]
+guide-entry-rules-r13 = [color=#a4885c]R13[/color]
+guide-entry-rules-r14 = [color=#a4885c]R14[/color]
+guide-entry-rules-r15 = [color=#a4885c]R15[/color]
+guide-entry-rules-silicon = [color=#a4885c]Правила для кремниевых[/color]
+guide-entry-rules-s1 = [color=#a4885c]S1[/color]
+guide-entry-rules-s2 = [color=#a4885c]S2[/color]
+guide-entry-rules-s3 = [color=#a4885c]S3[/color]
+guide-entry-rules-s4 = [color=#a4885c]S4[/color]
+guide-entry-rules-s5 = [color=#a4885c]S5[/color]
+guide-entry-rules-s6 = [color=#a4885c]S6[/color]
+guide-entry-rules-s7 = [color=#a4885c]S7[/color]
+guide-entry-rules-s8 = [color=#a4885c]S8[/color]
+guide-entry-rules-s9 = [color=#a4885c]S9[/color]
+guide-entry-rules-s10 = [color=#a4885c]S10[/color]
+guide-entry-rules-space-law = [color=#a4885c]Космический закон[/color]
+guide-entry-rules-sl-crime-list = [color=#a4885c]Перечень преступлений[/color]
+guide-entry-rules-sl-controlled-substances = [color=#a4885c]Контролируемые вещества[/color]
+guide-entry-rules-sl-restricted-gear = [color=#a4885c]Запрещённое снаряжение[/color]
+guide-entry-rules-sl-restricted-weapons = [color=#a4885c]Запрещённое оружие[/color]
+guide-entry-rules-ban-types = [color=#a4885c]Виды банов[/color]
+guide-entry-rules-ban-durations = [color=#a4885c]Сроки банов[/color]
+guide-entry-writing = [color=#a4885c]Разметка письма[/color]
+guide-entry-glossary = [color=#a4885c]Словарь терминов[/color]

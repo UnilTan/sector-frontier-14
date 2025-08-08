@@ -1,53 +1,53 @@
 <Document>
-  #Frontier Station Rules
+  #Правила станции Фронтир
 
-  [color=red]If any of the links do not work use the guidebook version on the escape or (Numpad 0) menus. [/color]
+  [color=red]Если какие-либо ссылки не работают, используйте версию руководства в меню escape или (Numpad 0). [/color]
 
-  [color=red]These rules are expected to be read in their entirety.[/color]
+  [color=red]Ожидается, что эти правила будут прочитаны полностью.[/color]
 
-  ##Admin Decisions
-  - All admin decisions are final.
-  - Rules are enforced to the spirit of the rules and subject to admin interpretation.
-  - Admins may disregard any/all rules if they deem it in the best interest of the current round, the server, and/or the community.
-  - Admins are accountable for their actions. Abuse of admin privileges will be dealt with by staff.
+  ##Решения администрации
+  - Все решения администрации окончательны.
+  - Правила применяются в духе правил и подлежат интерпретации администрации.
+  - Администрация может игнорировать любые/все правила, если считает это в интересах текущего раунда, сервера и/или сообщества.
+  - Администрация несёт ответственность за свои действия. Злоупотребление административными привилегиями будет рассмотрено персоналом.
 
-  ##General Information
-  - Disconnecting from or ignoring/evading admin-helps will result in an appeal-only ban.
-  - Admins are not obligated to cover player losses, deaths or delays.
-  -- This includes, but is not limited to: ship deeds, money, respawns and revivals.
-  -- Any action taken is at the staff's discretion, and depends on the circumstances.
+  ##Общая информация
+  - Отключение от сервера или игнорирование/уклонение от админ-помощи приведёт к бану только с возможностью апелляции.
+  - Администрация не обязана компенсировать потери игроков, смерти или задержки.
+  -- Это включает, но не ограничивается: документы на корабли, деньги, респауны и воскрешения.
+  -- Любое действие принимается на усмотрение персонала и зависит от обстоятельств.
 
-  # Rule List
+  # Список правил
 
-  All of the below rules apply at all times, including between rounds, in-game and elsewhere in our community.
+  Все приведённые ниже правила применяются всегда, включая время между раундами, в игре и в других местах нашего сообщества.
 
-  ## Zero Tolerance Rules
-  You are liable to be banned without previous warning for breaking these rules.
-  - [textlink="Click here to read the zero tolerance rules." link="FrontierRuleZeroTolerance"]
+  ## Правила нулевой терпимости
+  Вы можете быть забанены без предварительного предупреждения за нарушение этих правил.
+  - [textlink="Нажмите здесь, чтобы прочитать правила нулевой терпимости." link="FrontierRuleZeroTolerance"]
 
-  ## Core Rules
-  These are the general rules of Frontier. Click them for more information.
-  - [textlink="1. Respect the community." link="FrontierRule1"]
-  - [textlink="2. Don't act on out of character info." link="FrontierRule2"]
-  - [textlink="3. Don't attack another player without reasonable escalation." link="FrontierRule3"]
-  - [textlink="4. Use chat for chat, and communicate in English." link="FrontierRule4"]
+  ## Основные правила
+  Это общие правила Фронтира. Нажмите на них для получения дополнительной информации.
+  - [textlink="1. Уважайте сообщество." link="FrontierRule1"]
+  - [textlink="2. Не действуйте на основе информации вне персонажа." link="FrontierRule2"]
+  - [textlink="3. Не атакуйте другого игрока без разумной эскалации." link="FrontierRule3"]
+  - [textlink="4. Используйте чат для общения и общайтесь на английском языке." link="FrontierRule4"]
 
-  ## Roleplay Rules
-  These are the roleplay rules of Frontier. Click them for more information.
-  - [textlink="5. Your character should be plausible, and is separate from you." link="FrontierRule5"]
-  - [textlink="6. Respect the Frontier Outpost safezone." link="FrontierRule6"]
-  - [textlink="7. Antagonists and non-antags are enemies." link="FrontierRule7"]
-  - [textlink="8. PvP combat is allowed, but subject to escalation." link="FrontierRule8"]
-  - [textlink="9. Pirates must follow their code." link="FrontierRule9"]
-  - [textlink="10. Non-capital Space Law offenses may be committed with good reason." link="FrontierRule10"]
-  - [textlink="11. Silicons must follow their laws." link="FrontierRule11"]
+  ## Правила отыгрыша
+  Это правила отыгрыша Фронтира. Нажмите на них для получения дополнительной информации.
+  - [textlink="5. Ваш персонаж должен быть правдоподобным и отделён от вас." link="FrontierRule5"]
+  - [textlink="6. Уважайте безопасную зону аванпоста Фронтир." link="FrontierRule6"]
+  - [textlink="7. Антагонисты и не-антагонисты являются врагами." link="FrontierRule7"]
+  - [textlink="8. PvP бои разрешены, но подлежат эскалации." link="FrontierRule8"]
+  - [textlink="9. Пираты должны следовать своему кодексу." link="FrontierRule9"]
+  - [textlink="10. Некриминальные нарушения Космического Закона могут совершаться по веской причине." link="FrontierRule10"]
+  - [textlink="11. Силиконы должны следовать своим законам." link="FrontierRule11"]
 
-  ## NFSD and Command
-  These rules also apply to any individual who is deputized or is acting in the place of a NFSD/Command role.
-  - [textlink="12. Security and Station staff must act with integrity." link="FrontierRule12"]
-  - [textlink="13. Command staff must act with integrity." link="FrontierRule13"]
+  ## ДСБФ и Командование
+  Эти правила также применяются к любому лицу, которое назначено или действует вместо роли ДСБФ/Командования.
+  - [textlink="12. Служба безопасности и персонал станции должны действовать с честностью." link="FrontierRule12"]
+  - [textlink="13. Командный персонал должен действовать с честностью." link="FrontierRule13"]
 
-  ## The Final Rule
-  - [color=green]There is no internal end point or single goal to the overall round, you set them yourself and in the path to achieving them you might probably die, lose your money, ship, work, time or everything at the same time to forces outside of your control and that is part of the fun.[/color]
+  ## Финальное правило
+  - [color=green]Нет внутренней конечной точки или единственной цели для общего раунда, вы устанавливаете их сами, и на пути к их достижению вы можете умереть, потерять деньги, корабль, работу, время или всё сразу из-за сил, находящихся вне вашего контроля, и это часть удовольствия.[/color]
 
 </Document>

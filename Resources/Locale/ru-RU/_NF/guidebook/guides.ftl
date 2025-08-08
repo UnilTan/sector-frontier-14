@@ -2,7 +2,7 @@
 guide-entry-nf14 = Руководство Фронтира
 guide-entry-bank = NT Галактический банк
 guide-entry-piloting = Пилотирование
-guide-entry-hiring = Наём экипажа
+guide-entry-hiring = Найм экипажа
 guide-entry-expeditions = Экспедиции
 guide-entry-shipyard = Верфи
 guide-entry-frontier-rules = Правила сервера
