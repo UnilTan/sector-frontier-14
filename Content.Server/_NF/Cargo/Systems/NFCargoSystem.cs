@@ -49,6 +49,7 @@ public sealed partial class NFCargoSystem : SharedNFCargoSystem
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly DynamicPricingSystem _dynamicPricing = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
