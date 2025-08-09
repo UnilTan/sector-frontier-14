@@ -100,7 +100,7 @@
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
   <Box>
-  <GuideEntityEmbed Entity="MobMercenarySpecialistEngineer"/>
+  <GuideEntityEmbed Entity="MobMercenarySpecialistAssault"/> <!--ЕБУЧИЕ ИИ-->
   </Box>
   - [bold][color=#a4885c]Порог здоровья:[/color][/bold] 100 (критическое), 130 (смерть)
   - [bold][color=#a4885c]Скорость (бег/ходьба):[/color][/bold] 4.5 м/с (2.5 м/с)
