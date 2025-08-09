@@ -1,4 +1,4 @@
-﻿<Document>
+<Document>
   # Насосы
   Насосы - основной способ активно гнать газ по [textlink="трубосети" link="PipeNetworks"]. Берут газ с одной стороны и толкают на другую.
   Есть два типа насосов:
@@ -37,5 +37,5 @@
 
   Очень полезны для быстрой перекачки больших объёмов. Обычно могут добиться большего давления, чем давленческий.
 
-  Но и они будут [color=red]блокироваться[/color], если пытаются толкать газ в трубу с давлением выше [color=orange][protodata="GasVolumePump" comp="GasVolumePump" member="HigherThreshold"/] кПа[/color].
+  Но и они будут [color=red]блокироваться[/color], если пытаются толкать газ в трубу с давлением выше [color=orange]<!--[protodata="GasVolumePump" comp="GasVolumePump" member="HigherThreshold"/]--> кПа[/color].
 </Document>

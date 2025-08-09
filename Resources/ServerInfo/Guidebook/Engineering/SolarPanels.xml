@@ -1,4 +1,4 @@
-﻿<Document>
+<Document>
   # Солнечные панели
   Солнечные панели — пассивный источник энергии с низким обслуживанием, преобразуют солнечный свет в электричество.
 
@@ -17,6 +17,7 @@
   При идеальном положении без затенения обычная панель выдаёт до [color=orange][protodata="SolarPanel" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color].
 
   Панели выдают [color=orange]HV[/color], под ними нужен [color=orange]HV-кабель[/color] для подключения к сети.
+    <!-- When directly facing the sun with no object occlusion, regular solar panels can generate [color=orange][protodata="SolarPanel" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] of power. -->
 
   ## Зачем панели
   Часто их ставят вместе с [textlink="AME" link="AME"]:
@@ -82,5 +83,5 @@
     <GuideEntityEmbed Entity="SolarPanelUranium"/>
   </Box>
   Достаточно заменить стекло в сборке на плазменное или урановое.
-  Такие панели выдают до [color=orange][protodata="SolarPanelPlasma" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color] и [color=orange][protodata="SolarPanelUranium" comp="SolarPanel" member="MaxSupply" format="N0"] Вт[/color] соответственно и прочнее обычных.
+  Такие панели выдают до [color=orange]<!--[protodata="SolarPanelPlasma" comp="SolarPanel" member="MaxSupply" format="N0"]--> Вт[/color] и [color=orange]<!--[protodata="SolarPanelUranium" comp="SolarPanel" member="MaxSupply" format="N0"]--> Вт[/color] соответственно и прочнее обычных.
 </Document>

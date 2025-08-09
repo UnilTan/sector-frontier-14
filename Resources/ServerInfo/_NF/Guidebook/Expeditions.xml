@@ -65,7 +65,7 @@
   <Box>
   <GuideEntityEmbed Entity="ClothingOuterWinterMiner"/>
   <GuideEntityEmbed Entity="ClothingOuterHardsuitEVA"/>
-  <GuideEntityEmbed Entity="ClothingOuterHardsuitBasic"/>
+  <GuideEntityEmbed Entity="ClothingOuterHardsuitSpatio"/>
   </Box>
   [bold][color=#a4885c]Температурные условия:[/color][/bold]
   - [bold]Нет:[/bold] тепло, спецэкипировка не требуется.
