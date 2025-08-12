@@ -19,9 +19,9 @@ using Content.Server.Hands.Systems;
 
 namespace Content.Server._NF.Contraband.Systems;
 
-/// <summary>
-/// Contraband system. Contraband Pallet UI Console is mostly a copy of the system in cargo. Checkraze Note: copy of my code from cargosystems.shuttles.cs
-/// </summary>
+// Handles contraband turn-in via pallet consoles.
+// Mirrors cargo pallet logic but reads values from ContrabandComponent.
+// RU: Приём контрабанды через паллеты; логика как в карго, но цены из ContrabandComponent.
 public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
@@ -51,6 +51,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
 
     private void UpdatePalletConsoleInterface(EntityUid uid, ContrabandPalletConsoleComponent comp)
     {
+        // Ensure UI exists and update with current appraisal.
         var bui = _uiSystem.HasUi(uid, ContrabandPalletConsoleUiKey.Contraband);
         if (Transform(uid).GridUid is not EntityUid gridUid)
         {
@@ -72,13 +73,9 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
         UpdatePalletConsoleInterface(uid, component);
     }
 
-    /// <summary>
-    /// Ok so this is just the same thing as opening the UI, its a refresh button.
-    /// I know this would probably feel better if it were like predicted and dynamic as pallet contents change
-    /// However.
-    /// I dont want it to explode if cargo uses a conveyor to move 8000 pineapple slices or whatever, they are
-    /// known for their entity spam i wouldnt put it past them
-    /// </summary>
+    // Appraisal is a lightweight refresh, same as opening the UI.
+    // Avoid real-time recalculation on every content change to reduce load.
+    // RU: Оценка — это лёгкое обновление как при открытии UI, без частого пересчёта.
 
     private void OnPalletAppraise(EntityUid uid, ContrabandPalletConsoleComponent component, ContrabandPalletAppraiseMessage args)
     {
@@ -106,7 +103,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
         return pads;
     }
 
-    private void SellPallets(EntityUid gridUid, ContrabandPalletConsoleComponent component, EntityUid? station, out int amount)
+    private void SellPallets(EntityUid consoleUid, EntityUid gridUid, ContrabandPalletConsoleComponent component, EntityUid? station, out int amount)
     {
         station ??= _station.GetOwningStation(gridUid);
         GetPalletGoods(gridUid, component, out var toSell, out amount);
@@ -115,7 +112,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
 
         if (station != null)
         {
-            var ev = new NFEntitySoldEvent(toSell, gridUid);
+            var ev = new NFEntitySoldEvent(toSell, gridUid, consoleUid);
             RaiseLocalEvent(ref ev);
         }
 
@@ -201,7 +198,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
             return;
         }
 
-        SellPallets(gridUid, component, null, out var price);
+        SellPallets(uid, gridUid, component, null, out var price);
 
         var stackPrototype = _protoMan.Index<StackPrototype>(component.RewardType);
         var stackUid = _stack.Spawn(price, stackPrototype, args.Actor.ToCoordinates());

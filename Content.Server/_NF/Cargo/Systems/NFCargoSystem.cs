@@ -4,6 +4,7 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Hands.Systems;
+using Content.Server._NF.Market.Systems; //Lua: dependency for dynamic market pricing
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
@@ -49,6 +50,7 @@ public sealed partial class NFCargoSystem : SharedNFCargoSystem
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly MarketSystem _market = default!; // Dynamic pricing access
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;
@@ -83,5 +85,32 @@ public sealed partial class NFCargoSystem : SharedNFCargoSystem
     {
         ResetOrders();
         CleanupTradeCrateDestinations();
+    }
+
+    // Chooses the dynamic pricing system instance based on console prototype id.
+    // Routes between Default/BlackMarket/Syndicate domain instances.
+    // RU: Выбирает экземпляр системы динамики по id прототипа консоли.
+    private Content.Server._NF.Market.Systems.BaseMarketDynamicSystem? ResolveRoutingSystem(EntityUid console)
+    {
+        var proto = MetaData(console).EntityPrototype;
+        if (proto != null)
+        {
+            var id = proto.ID;
+            if (id.Contains("BlackMarket", StringComparison.OrdinalIgnoreCase))
+            {
+                var sys = EntityManager.System<Content.Server._NF.Market.Systems.MarketSystemBlackMarket>();
+                sys.LoadDomainConfig("BlackMarket");
+                return sys;
+            }
+            if (id.Contains("Syndicate", StringComparison.OrdinalIgnoreCase))
+            {
+                var sys = EntityManager.System<Content.Server._NF.Market.Systems.MarketSystemSyndicate>();
+                sys.LoadDomainConfig("SyndicateMarket");
+                return sys;
+            }
+        }
+        var def = EntityManager.System<Content.Server._NF.Market.Systems.MarketSystemDefault>();
+        def.LoadDomainConfig("DefaultMarket");
+        return def;
     }
 }

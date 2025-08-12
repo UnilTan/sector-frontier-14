@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._NF.Cargo.Systems;
+using Content.Server._NF.Cargo.Components; // NFCargoPalletConsoleComponent
 using Content.Server._NF.Market.Components;
 using Content.Server._NF.Market.Extensions;
 using Content.Server.Storage.Components;
@@ -12,6 +13,7 @@ using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Materials;
+using Content.Shared._NF.Market.Components; // MarketDomainComponent (shared)
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -30,6 +32,41 @@ public sealed partial class MarketSystem
         SubscribeLocalEvent<MarketConsoleComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
+    private BaseMarketDynamicSystem? ResolveRoutingSystem(EntityUid grid)
+    {
+        // Prefer explicit consoles on the grid to decide routing; fallback to default.
+        var query = AllEntityQuery<NFCargoPalletConsoleComponent, TransformComponent, MarketModifierComponent>();
+        while (query.MoveNext(out var uid, out var console, out var xform, out var modifier))
+        {
+            if (xform.GridUid != grid)
+                continue;
+            // Identify by sprite/state via name doesn't scale; use existing ids:
+            var proto = MetaData(uid).EntityPrototype;
+            if (proto != null)
+            {
+                var id = proto.ID;
+                if (id.Contains("BlackMarket", StringComparison.OrdinalIgnoreCase))
+                {
+                    var sys = EntityManager.System<MarketSystemBlackMarket>();
+                    sys.LoadDomainConfig("BlackMarket");
+                    return sys;
+                }
+                if (id.Contains("Syndicate", StringComparison.OrdinalIgnoreCase))
+                {
+                    var sys = EntityManager.System<MarketSystemSyndicate>();
+                    sys.LoadDomainConfig("SyndicateMarket");
+                    return sys;
+                }
+            }
+            var def = EntityManager.System<MarketSystemDefault>();
+            def.LoadDomainConfig("DefaultMarket");
+            return def;
+        }
+        var @default = EntityManager.System<MarketSystemDefault>();
+        @default.LoadDomainConfig("DefaultMarket");
+        return @default;
+    }
+
     private void OnPowerChanged(EntityUid uid, MarketConsoleComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
@@ -43,6 +80,13 @@ public sealed partial class MarketSystem
     /// <param name="entitySoldEvent">The details of the event</param>
     private void OnEntitySoldEvent(ref NFEntitySoldEvent entitySoldEvent)
     {
+        // If sale source console does not contribute to market, ignore for pricing dynamics.
+        if (TryComp<NFCargoPalletConsoleComponent>(entitySoldEvent.SourceConsole, out var pallet)
+            && !pallet.ContributesToMarket)
+        {
+            return;
+        }
+
         var station = _station.GetOwningStation(entitySoldEvent.Grid);
         if (station is null ||
             !_entityManager.TryGetComponent<CargoMarketDataComponent>(station, out var market))
@@ -52,12 +96,15 @@ public sealed partial class MarketSystem
 
         foreach (var sold in entitySoldEvent.Sold)
         {
+            // Route to appropriate market system instance based on console type on the grid.
+            var system = ResolveRoutingSystem(entitySoldEvent.Grid);
+            system?.RegisterSaleForEntity(sold);
             UpsertEntity(market, sold);
         }
     }
 
     /// <summary>
-    /// Recursively updates/inserts an entity and everything it contains into the cargo market. 
+    /// Recursively updates/inserts an entity and everything it contains into the cargo market.
     /// </summary>
     /// <param name="market">The market data set that will store these entities.</param>
     /// <param name="sold">The entity to add.</param>

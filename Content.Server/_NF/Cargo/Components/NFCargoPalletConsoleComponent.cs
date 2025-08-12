@@ -9,22 +9,24 @@ namespace Content.Server._NF.Cargo.Components;
 [Access(typeof(NFCargoSystem))]
 public sealed partial class NFCargoPalletConsoleComponent : Component
 {
-    /// <summary>
-    /// The type of cash to spawn for anything being sold from the pallet.
-    /// </summary>
+    // The stack prototype to spawn as currency for items sold from the pallet.
+    // RU: Прототип стака, который спавнится как деньги за проданные предметы.
     [DataField]
     public ProtoId<StackPrototype> CashType = "Credit";
 
-    /// <summary>
-    /// The distance in a radius around the console to check for cargo pallets.
-    /// Can be modified individually when mapping, so that consoles have a further reach.
-    /// </summary>
+    // The radius around the console to check for cargo pallets (mappable per console).
+    // RU: Радиус вокруг консоли для поиска паллет (можно задать на карте).
     [DataField]
     public int PalletDistance = 8;
 
-    /// <summary>
-    /// The whitelist that determines what goods can be sold.  Accepts everything if null.
-    /// </summary>
+    // Whitelist that determines what goods can be sold. Accepts everything if null.
+    // RU: Белый список продаваемых сущностей; если null — разрешено всё.
     [DataField]
     public EntityWhitelist? Whitelist;
+
+    // Whether this console's sales feed into the dynamic market system.
+    // Pirate/freelancer consoles set this to false to avoid affecting global prices and UI.
+    // RU: Влияет ли эта консоль на динамику рынка; пираты/фрилансеры обычно false.
+    [DataField]
+    public bool ContributesToMarket = true;
 }
