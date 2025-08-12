@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": Apache License 2.0,
+  "copyright": CC-BY-2.0,
   "size": {
     "x": 32,
     "y": 32
