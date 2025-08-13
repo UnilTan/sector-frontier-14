@@ -8,13 +8,14 @@
   abstract: true
   components:
   - type: Sprite
+    sprite: _Lua/Structures/Machines/computers.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: generic_keyboard_trade
     - map: ["computerLayerScreen"]
-      state: transferSyndicate
+      state: transferSyndicateN
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -47,13 +48,14 @@
   abstract: true
   components:
   - type: Sprite
+    sprite: _Lua/Structures/Machines/computers.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: generic_keyboard_trade
     - map: ["computerLayerScreen"]
-      state: transferBlackMarket
+      state: transferBlackMarketN
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -86,13 +88,14 @@
   abstract: true
   components:
   - type: Sprite
+    sprite: _Lua/Structures/Machines/computers.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: generic_keyboard_trade
     - map: ["computerLayerScreen"]
-      state: transferPirate
+      state: transferPirateN
     - map: ["computerLayerKeys"]
       state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
