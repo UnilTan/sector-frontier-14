@@ -78,6 +78,10 @@
 - type: Tag
   id: Cutlet
 
+# Needed for fish fillets and recipes referencing the Fish tag
+- type: Tag
+  id: Fish
+
 # Raw
 
 - type: entity
