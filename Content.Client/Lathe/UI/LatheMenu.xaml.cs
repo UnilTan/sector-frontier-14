@@ -144,13 +144,17 @@ public sealed partial class LatheMenu : DefaultWindow
     {
         StringBuilder sb = new();
         var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).FinalMaterialUseMultiplier; // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
+        // Consider the selected batch quantity when displaying costs to match server-side consumption
+        var quantity = 1;
+        if (!int.TryParse(AmountLineEdit.Text, out quantity) || quantity <= 0)
+            quantity = 1;
 
         foreach (var (id, amount) in prototype.Materials)
         {
             if (!_prototypeManager.TryIndex(id, out var proto))
                 continue;
 
-            var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier);
+            var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier) * quantity;
             var sheetVolume = _materialStorage.GetSheetVolume(proto);
 
             var unit = Loc.GetString(proto.Unit);
