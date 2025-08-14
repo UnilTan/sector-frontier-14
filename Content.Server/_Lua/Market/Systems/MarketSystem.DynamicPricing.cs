@@ -18,6 +18,10 @@ using Content.Shared.Weapons.Ranged.Components; // Guns
 using Content.Shared.Weapons.Melee; // Melee
 using Content.Shared.Explosion.Components; // Explosives
 using Content.Server.Instruments; // Instruments(?)
+using Robust.Server.Player;
+using Robust.Shared.Enums; // SessionStatus
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server._NF.Market.Systems;
 
@@ -25,6 +29,7 @@ public sealed partial class MarketSystem
 {
     // Timing dependency for dynamic pricing restoration.
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private sealed class DynamicPriceState
     {
@@ -36,7 +41,42 @@ public sealed partial class MarketSystem
     private const double DefaultDynamicDecayPerStack = 0.01;
     private const double DefaultDynamicRestorePerMinute = 0.01;
     private const double DefaultDynamicMinAfterTaxBaseFraction = 0.25;
-    private const double DefaultBulkDecayPerStack = 0.002;
+    private const double DefaultBulkDecayPerStack = 0.0007;
+
+    // Online-dependent dumping tuning.
+    private const int OnlineMinBaseline = 0;   // Min online
+    private const int OnlineMaxBaseline = 110;  // Max online on this server
+    private const double OnlineDecayScaleMin = 0.9;  // Softer scaling at low online
+    private const double OnlineDecayScaleMax = 1.1;  // Softer scaling at high online
+
+    private int GetActiveAlivePlayerCount()
+    {
+        var sessions = _playerManager.Sessions;
+        var count = 0;
+        foreach (var s in sessions)
+        {
+            if (s.Status != SessionStatus.InGame)
+                continue;
+            if (s.AttachedEntity is not { } uid)
+                continue;
+            if (!_entityManager.TryGetComponent(uid, out MobStateComponent? mob))
+                continue;
+            if (mob.CurrentState == MobState.Alive)
+                count++;
+        }
+        return count;
+    }
+
+    private double GetOnlineDumpingScale()
+    {
+        var online = (double) GetActiveAlivePlayerCount();
+        if (online <= OnlineMinBaseline)
+            return OnlineDecayScaleMin;
+        if (online >= OnlineMaxBaseline)
+            return OnlineDecayScaleMax;
+        var t = (online - OnlineMinBaseline) / Math.Max(1.0, (OnlineMaxBaseline - OnlineMinBaseline));
+        return OnlineDecayScaleMin + t * (OnlineDecayScaleMax - OnlineDecayScaleMin);
+    }
 
     private enum MarketCategory
     {
@@ -203,7 +243,7 @@ public sealed partial class MarketSystem
 
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var decay = GetParamsForPrototype(prototypeId).DecayPerStack;
+        var decay = GetParamsForPrototype(prototypeId).DecayPerStack * GetOnlineDumpingScale();
         state.Multiplier = Math.Max(0.0, state.Multiplier - decay * count);
         // LastUpdateTime remains current from RestoreNow.
     }
@@ -220,7 +260,7 @@ public sealed partial class MarketSystem
 
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack;
+        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack * GetOnlineDumpingScale();
         var extra = bulk * Math.Max(0, batchCount - 1);
         state.Multiplier = Math.Max(0.0, state.Multiplier - extra);
     }
@@ -233,7 +273,7 @@ public sealed partial class MarketSystem
     {
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack;
+        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack * GetOnlineDumpingScale();
         var extra = bulk * Math.Max(0, batchCount - 1);
         return Math.Max(0.0, state.Multiplier - extra);
     }
@@ -251,8 +291,9 @@ public sealed partial class MarketSystem
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
         var p = GetParamsForPrototype(prototypeId);
-        var perUnit = p.DecayPerStack * Math.Max(0, batchCount);
-        var bulk = p.BulkDecayPerStack * Math.Max(0, batchCount - 1);
+        var scale = GetOnlineDumpingScale();
+        var perUnit = p.DecayPerStack * scale * Math.Max(0, batchCount);
+        var bulk = p.BulkDecayPerStack * scale * Math.Max(0, batchCount - 1);
         var projected = state.Multiplier - perUnit - bulk;
         return Math.Max(0.0, projected);
     }

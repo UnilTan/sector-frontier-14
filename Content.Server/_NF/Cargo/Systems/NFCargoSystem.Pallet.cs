@@ -140,7 +140,7 @@ public sealed partial class NFCargoSystem
 
             if (contributes && _market.TryGetDynamicPrototypeId(uid, out var pid))
             {
-                var units = 1; // Stacks treated as 1. RU: Стек считается за 1.
+                var units = 1; // Stacks treated as 1. RU: Стак считается за 1.
                 var system = ResolveRoutingSystem(ent.Owner);
                 var dyn = (system?.GetEffectiveMultiplierForBatch(pid, previewBatchByProto.GetValueOrDefault(pid, units))) ?? 1.0;
                 var taxed = basePrice * taxMultiplier * dyn;
@@ -371,7 +371,7 @@ public sealed partial class NFCargoSystem
             taxMultiplier = priceMod.Mod;
 
             // Build preview-batch by prototype (stacks count as 1) to match UI pricing preview.
-            // RU: Формируем размеры партий по прототипам (стек=1) как в превью UI.
+            // RU: Формируем размеры партий по прототипам (стак=1) как в превью UI.
             var previewBatchByProto = new Dictionary<string, int>();
             var contributesSale = ent.Comp.ContributesToMarket;
             if (contributesSale)
@@ -380,7 +380,7 @@ public sealed partial class NFCargoSystem
                 {
                     if (!_market.TryGetDynamicPrototypeId(uid, out var pid))
                         continue;
-                    var units = 1; // Stacks count as 1 for pricing preview. RU: Стек=1 для превью.
+                    var units = 1; // Stacks count as 1 for pricing preview. RU: Стак=1 для превью.
                     if (!previewBatchByProto.TryAdd(pid, units))
                         previewBatchByProto[pid] += units;
                 }
@@ -423,8 +423,8 @@ public sealed partial class NFCargoSystem
                 }
             }
 
-        // Compute batch sizes by prototype (for post-sale bulk effect).
-        // RU: Размеры партий по прототипам для последующего оптового эффекта.
+        // Compute batch sizes by prototype (for post-sale bulk effect), counting each stack as 1 unit.
+        // RU: Размеры партий по прототипам для последующего оптового эффекта, считая каждый стак как 1.
             var bulkByProto = new Dictionary<string, int>();
         if (contributesSale)
         {
@@ -432,10 +432,7 @@ public sealed partial class NFCargoSystem
             {
                 if (_market.TryGetDynamicPrototypeId(uid, out var pid))
                 {
-                    var units = 1;
-                    if (TryComp<StackComponent>(uid, out var stack))
-                        units = int.Max(1, stack.Count);
-
+                    const int units = 1; // Stack is treated as 1 unit for dynamic bulk effect
                     if (!bulkByProto.TryAdd(pid, units))
                         bulkByProto[pid] += units;
                 }

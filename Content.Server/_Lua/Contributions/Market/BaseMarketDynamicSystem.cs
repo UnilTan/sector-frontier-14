@@ -15,6 +15,10 @@ using Content.Shared.Construction.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing; // IGameTiming
 using Content.Shared.Stacks;
+using Robust.Server.Player;
+using Robust.Shared.Enums; // SessionStatus
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server._NF.Market.Systems;
 
@@ -27,6 +31,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     // Mutable state for a single prototype's dynamic multiplier and last update time.
     // RU: Состояние: множитель для прототипа и время последнего обновления.
@@ -36,10 +41,45 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         public TimeSpan LastUpdateTime;
     }
 
-    private const double DefaultDynamicDecayPerStack = 0.01;
-    private const double DefaultDynamicRestorePerMinute = 0.01;
-    private const double DefaultDynamicMinAfterTaxBaseFraction = 0.25;
-    private const double DefaultBulkDecayPerStack = 0.002;
+    private double DefaultDynamicDecayPerStack = 0.003;
+    private double DefaultDynamicRestorePerMinute = 0.01;
+    private double DefaultDynamicMinAfterTaxBaseFraction = 0.25;
+    private double DefaultBulkDecayPerStack = 0.0007;
+
+        // Online-dependent dumping tuning.
+        private int OnlineMinBaseline = 0;   // Min online
+        private int OnlineMaxBaseline = 110; // Max online
+        private double OnlineDecayScaleMin = 0.9;  // Softer scaling at low online
+        private double OnlineDecayScaleMax = 1.1;  // Softer scaling at high online
+
+        private int GetActiveAlivePlayerCount()
+        {
+            var sessions = _playerManager.Sessions;
+            var count = 0;
+            foreach (var s in sessions)
+            {
+                if (s.Status != SessionStatus.InGame)
+                    continue;
+                if (s.AttachedEntity is not { } uid)
+                    continue;
+                if (!EntityManager.TryGetComponent(uid, out MobStateComponent? mob))
+                    continue;
+                if (mob.CurrentState == MobState.Alive)
+                    count++;
+            }
+            return count;
+        }
+
+        private double GetOnlineDumpingScale()
+        {
+            var online = (double) GetActiveAlivePlayerCount();
+            if (online <= OnlineMinBaseline)
+                return OnlineDecayScaleMin;
+            if (online >= OnlineMaxBaseline)
+                return OnlineDecayScaleMax;
+            var t = (online - OnlineMinBaseline) / Math.Max(1.0, (OnlineMaxBaseline - OnlineMinBaseline));
+            return OnlineDecayScaleMin + t * (OnlineDecayScaleMax - OnlineDecayScaleMin);
+        }
 
     // Product categories used to map entity prototypes to dynamic pricing parameters.
     // RU: Категории товаров для подбора параметров динамики.
@@ -60,21 +100,21 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
     // RU: Параметры динамики на уровне категории.
     protected sealed class CategoryParams
     {
-        public double DecayPerStack = DefaultDynamicDecayPerStack;
-        public double BulkDecayPerStack = DefaultBulkDecayPerStack;
-        public double RestorePerMinute = DefaultDynamicRestorePerMinute;
-        public double MinAfterTaxBaseFraction = DefaultDynamicMinAfterTaxBaseFraction;
+        public double DecayPerStack = 0.003;
+        public double BulkDecayPerStack = 0.0007;
+        public double RestorePerMinute = 0.01;
+        public double MinAfterTaxBaseFraction = 0.25;
     }
 
     private static readonly Dictionary<MarketCategory, CategoryParams> CategoryConfig = new()
     {
-        [MarketCategory.Chemistry] = new CategoryParams { DecayPerStack = 0.04, BulkDecayPerStack = 0.02, RestorePerMinute = 0.006, MinAfterTaxBaseFraction = 0.20 },
-        [MarketCategory.Botany] = new CategoryParams { DecayPerStack = 0.03, BulkDecayPerStack = 0.015, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.25 },
-        [MarketCategory.FoodDrink] = new CategoryParams { DecayPerStack = 0.005, BulkDecayPerStack = 0.002, RestorePerMinute = 0.015, MinAfterTaxBaseFraction = 0.35 },
-        [MarketCategory.MaterialsOres] = new CategoryParams { DecayPerStack = 0.003, BulkDecayPerStack = 0.001, RestorePerMinute = 0.012, MinAfterTaxBaseFraction = 0.40 },
-        [MarketCategory.ManufacturedTools] = new CategoryParams { DecayPerStack = 0.007, BulkDecayPerStack = 0.002, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.35 },
-        [MarketCategory.SalvageMisc] = new CategoryParams { DecayPerStack = 0.007, BulkDecayPerStack = 0.002, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.30 },
-        [MarketCategory.WeaponsSecurity] = new CategoryParams { DecayPerStack = 0.015, BulkDecayPerStack = 0.005, RestorePerMinute = 0.008, MinAfterTaxBaseFraction = 0.25 },
+        [MarketCategory.Chemistry] = new CategoryParams { DecayPerStack = 0.0100, BulkDecayPerStack = 0.0050, RestorePerMinute = 0.006, MinAfterTaxBaseFraction = 0.20 },
+        [MarketCategory.Botany] = new CategoryParams { DecayPerStack = 0.0075, BulkDecayPerStack = 0.0038, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.25 },
+        [MarketCategory.FoodDrink] = new CategoryParams { DecayPerStack = 0.0013, BulkDecayPerStack = 0.0005, RestorePerMinute = 0.015, MinAfterTaxBaseFraction = 0.35 },
+        [MarketCategory.MaterialsOres] = new CategoryParams { DecayPerStack = 0.0008, BulkDecayPerStack = 0.0003, RestorePerMinute = 0.012, MinAfterTaxBaseFraction = 0.40 },
+        [MarketCategory.ManufacturedTools] = new CategoryParams { DecayPerStack = 0.0018, BulkDecayPerStack = 0.0005, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.35 },
+        [MarketCategory.SalvageMisc] = new CategoryParams { DecayPerStack = 0.0018, BulkDecayPerStack = 0.0005, RestorePerMinute = 0.01, MinAfterTaxBaseFraction = 0.30 },
+        [MarketCategory.WeaponsSecurity] = new CategoryParams { DecayPerStack = 0.0038, BulkDecayPerStack = 0.0013, RestorePerMinute = 0.008, MinAfterTaxBaseFraction = 0.25 },
         [MarketCategory.Instrument] = new CategoryParams { DecayPerStack = 0.0, BulkDecayPerStack = 0.0, RestorePerMinute = 0.0, MinAfterTaxBaseFraction = 1.0 },
         [MarketCategory.Unknown] = new CategoryParams()
     };
@@ -148,7 +188,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
 
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var decay = GetParamsForPrototype(prototypeId).DecayPerStack;
+        var decay = GetParamsForPrototype(prototypeId).DecayPerStack * GetOnlineDumpingScale();
         state.Multiplier = Math.Max(0.0, state.Multiplier - decay * count);
     }
 
@@ -161,7 +201,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
 
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack;
+        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack * GetOnlineDumpingScale();
         var extra = bulk * Math.Max(0, batchCount - 1);
         state.Multiplier = Math.Max(0.0, state.Multiplier - extra);
     }
@@ -172,7 +212,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
     {
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
-        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack;
+        var bulk = GetParamsForPrototype(prototypeId).BulkDecayPerStack * GetOnlineDumpingScale();
         var extra = bulk * Math.Max(0, batchCount - 1);
         return Math.Max(0.0, state.Multiplier - extra) * _domainBaseMultiplier;
     }
@@ -184,14 +224,15 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         RestoreNow(prototypeId);
         var state = GetState(prototypeId);
         var p = GetParamsForPrototype(prototypeId);
-        var perUnit = p.DecayPerStack * Math.Max(0, batchCount);
-        var bulk = p.BulkDecayPerStack * Math.Max(0, batchCount - 1);
+        var scale = GetOnlineDumpingScale();
+        var perUnit = p.DecayPerStack * scale * Math.Max(0, batchCount);
+        var bulk = p.BulkDecayPerStack * scale * Math.Max(0, batchCount - 1);
         var projected = state.Multiplier - perUnit - bulk;
         return Math.Max(0.0, projected) * _domainBaseMultiplier;
     }
 
     // Determines the prototype id used for dynamic tracking (stacks map to singular).
-    // RU: Определяет прототип для динамики (стеки приводятся к единичному).
+    // RU: Определяет прототип для динамики (стаки приводятся к единичному).
     public bool TryGetDynamicPrototypeId(EntityUid uid, out string prototypeId)
     {
         prototypeId = string.Empty;
@@ -219,6 +260,27 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
             return;
         _domainBaseMultiplier = proto.BaseMultiplier;
 
+        // Online scaling from prototype
+        OnlineMinBaseline = proto.OnlineMin;
+        OnlineMaxBaseline = proto.OnlineMax;
+        OnlineDecayScaleMin = proto.OnlineScaleMin;
+        OnlineDecayScaleMax = proto.OnlineScaleMax;
+
+        // Default dynamic parameters from prototype
+        DefaultDynamicDecayPerStack = proto.DefaultDecayPerStack;
+        DefaultBulkDecayPerStack = proto.DefaultBulkDecayPerStack;
+        DefaultDynamicRestorePerMinute = proto.DefaultRestorePerMinute;
+        DefaultDynamicMinAfterTaxBaseFraction = proto.DefaultMinAfterTaxBaseFraction;
+
+        // Ensure Unknown category reflects defaults
+        CategoryConfig[MarketCategory.Unknown] = new CategoryParams
+        {
+            DecayPerStack = DefaultDynamicDecayPerStack,
+            BulkDecayPerStack = DefaultBulkDecayPerStack,
+            RestorePerMinute = DefaultDynamicRestorePerMinute,
+            MinAfterTaxBaseFraction = DefaultDynamicMinAfterTaxBaseFraction
+        };
+
         foreach (var kv in proto.Categories)
         {
             var key = kv.Key;
@@ -240,7 +302,13 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         var category = GetCategoryForPrototype(prototypeId);
         if (CategoryConfig.TryGetValue(category, out var param))
             return param;
-        return CategoryConfig[MarketCategory.Unknown];
+        return new CategoryParams
+        {
+            DecayPerStack = DefaultDynamicDecayPerStack,
+            BulkDecayPerStack = DefaultBulkDecayPerStack,
+            RestorePerMinute = DefaultDynamicRestorePerMinute,
+            MinAfterTaxBaseFraction = DefaultDynamicMinAfterTaxBaseFraction
+        };
     }
 
     /// <summary>
