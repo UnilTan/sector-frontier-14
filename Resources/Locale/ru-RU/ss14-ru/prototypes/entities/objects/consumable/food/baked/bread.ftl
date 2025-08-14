@@ -76,3 +76,7 @@ ent-FoodBreadBaguetteCotton = хлопковый багет
     .desc = Бон аз-з-зетит!
 ent-FoodBreadBaguetteCottonSlice = хлопковый кростини
     .desc = Бон аз-з-зетит!
+ent-FoodBreadCotton = хлопковый хлеб
+    .desc = Хлеб, но для ниан.
+ent-FoodBreadCottonSlice = ломтик хлопкового хлеба
+    .desc = Кусочек вкуснейшего (наверное) хлопкового хлеба.

@@ -215,6 +215,10 @@
     Stellibinin: 10
   recipeType:
   - Assembler
+  - Oven
+  - Microwave
+
+# Не добавляем вариант с generic для вяленого карпа — это именно карп.
 
 # Birb
 
@@ -279,12 +283,14 @@
   solids:
     FoodAvocadoSlice: 2
     FoodCucumberSlice: 2
-    FoodMeatFish: 1
+    FoodCuredCarp: 1
   reagents:
     Rice: 15
     Water: 10
   recipeType:
   - Assembler
+
+# Суши оставляем карповыми — без generic.
 
 - type: microwaveMealRecipe
   id: RecipeCuredCarpSushi
@@ -396,6 +402,8 @@
     FoodCuredCarp: 1
   recipeType:
   - Assembler
+  - Oven
+  - Microwave
 
 - type: microwaveMealRecipe
   id: RecipeBatteredOnionRings

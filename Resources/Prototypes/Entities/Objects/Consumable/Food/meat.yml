@@ -141,6 +141,7 @@
     tags:
     - Raw
     - Meat
+    - Fish
   - type: Sprite
     state: fish
   - type: SolutionContainerManager
@@ -154,6 +155,32 @@
       reagents:
       - ReagentId: CarpoToxin
         Quantity: 5
+
+# Generic raw fish fillet (from fishing)
+- type: entity
+  name: raw fish fillet
+  parent: FoodMeatBase
+  id: FoodMeatFishGeneric
+  description: A slice of raw fish fillet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+    - Fish
+  - type: Sprite
+    state: fish
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 2
 
 - type: entity
   name: raw bacon

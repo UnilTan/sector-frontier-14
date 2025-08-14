@@ -14,6 +14,9 @@
     difficulty: 0.029
   - type: StaticPrice
     price: 250
+  - type: SliceableFood
+    count: 2
+    slice: FoodCuredCarp
 
 - type: entity
   id: BaseFishRare
@@ -26,6 +29,9 @@
     difficulty: 0.038
   - type: StaticPrice
     price: 750
+  - type: SliceableFood
+    count: 3
+    slice: FoodCuredCarp
 
 - type: entity
   id: FishAlien

@@ -241,9 +241,22 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    FoodMeatFish: 1
+    FoodCuredCarp: 1
     FoodCheeseSlice: 1
   recipeType: Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeCarpBurgerGeneric
+  name: fillet-o-fish burger recipe
+  result: FoodBurgerCarp
+  time: 10
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    FoodMeatFishGeneric: 1
+    FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: RecipeFiveBurger
@@ -966,8 +979,24 @@
     FoodBowlBig: 1
     FoodTomato: 1
     FoodMushroom: 1
-    FoodMeatFish: 1
+    FoodCuredCarp: 1
   recipeType: Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeBisqueFish
+  name: bisque recipe (fish fillet)
+  result: FoodSoupBisque
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+  solids:
+    FoodBowlBig: 1
+    FoodTomato: 1
+    FoodMushroom: 1
+    FoodMeatFishGeneric: 1
+  recipeType: Oven # Frontier
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSoup
@@ -1423,8 +1452,22 @@
     FoodDough: 1
     FoodCheeseSlice: 2
     FoodChiliPepper: 1
-    FoodMeatFish: 2
+    FoodCuredCarp: 2
   recipeType: Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeCubanFish
+  name: Cuban fish recipe
+  result: FoodMealCubancarp
+  time: 15
+  group: Savory
+  solids:
+    FoodDough: 1
+    FoodCheeseSlice: 2
+    FoodChiliPepper: 1
+    FoodMeatFishGeneric: 2
+  recipeType: Oven # Frontier
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: RecipeSashimi
@@ -1435,7 +1478,7 @@
   reagents:
     TableSalt: 1
   solids:
-    FoodMeatFish: 2
+    FoodCuredCarp: 2
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
@@ -2499,12 +2542,29 @@
   group: Savory
   solids:
     FoodTacoShell: 1
-    FoodMeatFish: 1
+    FoodCuredCarp: 1
     FoodOnionSlice: 2
     FoodTomato: 1
     FoodCabbage: 1
   recipeType: # Frontier
   - Oven # Frontier
+  - Microwave # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeTacoFishGeneric
+  name: fish taco recipe (fish fillet)
+  result: FoodTacoFish
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatFishGeneric: 1
+    FoodOnionSlice: 2
+    FoodTomato: 1
+    FoodCabbage: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: RecipeTacoRat
