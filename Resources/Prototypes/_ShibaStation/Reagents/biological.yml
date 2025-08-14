@@ -16,6 +16,14 @@
   metabolisms:
     Poison:
       effects:
+      # Ariral собственной кровью не травится: у арирала кровь быстро нейтрализуется
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Ariral
+          shouldHave: true
+        Reagent: AriralBlood
+        Amount: -2
       - !type:ChemVomit
         conditions:
         - !type:OrganType
