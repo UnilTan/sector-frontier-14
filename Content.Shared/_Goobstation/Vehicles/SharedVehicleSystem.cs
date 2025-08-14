@@ -223,6 +223,18 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         }
     }
 
+    private bool ShouldShowNoHandsPopup(EntityUid user)
+    {
+        if (!_net.IsClient)
+            return true;
+
+        var now = _timing.CurTime;
+        if (_lastNoHandsPopup.TryGetValue(user, out var last) && now - last < NoHandsPopupCooldown)
+            return false;
+        _lastNoHandsPopup[user] = now;
+        return true;
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -281,7 +293,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if (!TryOccupyHands(driver, ent.Owner))
         {
             _buckle.TryUnbuckle(driver, ent.Owner);
-            _popup.PopupEntity(Loc.GetString("vehicle-no-free-hands"), driver, PopupType.Medium);
+            // антисспам: покажем сообщение не чаще раза в NoHandsPopupCooldown и только предсказуемо
+            if (ShouldShowNoHandsPopup(driver))
+                _popup.PopupPredicted(Loc.GetString("vehicle-no-free-hands"), ent, driver);
             return;
         }
         // Lua end  (fuck driver cowboy)

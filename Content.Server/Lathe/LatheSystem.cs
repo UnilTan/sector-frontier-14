@@ -560,6 +560,13 @@ namespace Content.Server.Lathe
                         batch.ItemsPrinted--;
                     }
                 }
+                else
+                {
+                    // Очередь могла опустеть, если это был последний предмет партии и её сняли в TryStartProducing().
+                    // Вернём один предмет текущего рецепта, чтобы ресурсы не пропали.
+                    var newBatch = new LatheRecipeBatch(component.CurrentRecipe, 0, 1);
+                    component.Queue.Insert(0, newBatch);
+                }
 
                 component.CurrentRecipe = null;
             }
