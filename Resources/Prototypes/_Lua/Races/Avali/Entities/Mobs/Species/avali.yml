@@ -33,9 +33,16 @@
     baseWalkSpeed: 2.8
     baseSprintSpeed: 5.8
     weightlessAcceleration: 2.5
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
   - type: Carriable
   - type: DiseaseCarrier
   - type: HarpyVisuals
+  - type: CantCarryOthers
   - type: Icon
     sprite: _Lua/Races/Avali/parts.rsi
     state: full
