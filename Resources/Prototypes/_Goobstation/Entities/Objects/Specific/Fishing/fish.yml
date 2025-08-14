@@ -17,6 +17,8 @@
   - type: SliceableFood
     count: 2
     slice: FoodCuredCarp
+  - type: Food
+  - type: SolutionContainerManager
 
 - type: entity
   id: BaseFishRare
