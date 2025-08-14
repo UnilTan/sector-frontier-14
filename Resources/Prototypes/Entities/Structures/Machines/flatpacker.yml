@@ -9,7 +9,7 @@
     snapCardinals: true
     layers:
     - state: base
-    - state: unlit # DS14
+    - state: screen
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       shader: unshaded
     - state: panel
@@ -33,9 +33,13 @@
   - type: FlatpackCreator
     baseMachineCost:
       Steel: 750
+      Silver: 100
+      Gold: 50
     baseComputerCost:
       Steel: 500
       Glass: 250
+      Silver: 100
+      Gold: 50
   - type: Machine
     board: FlatpackerMachineCircuitboard
   - type: MaterialStorage
@@ -44,6 +48,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: AmbientSound
     enabled: false
     volume: 5
@@ -68,6 +73,7 @@
           components:
           - MachineBoard
           - ComputerBoard
+        whitelistFailPopup: flatpacker-item-cannot-be-flatpacked # Frontier
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
@@ -78,8 +84,11 @@
     - machine_parts
     - machine_board
     - board_slot
-  - type: StaticPrice
-    price: 2000
+  - type: MaterialStorageMagnetPickup # Frontier
+    range: 0.30 # Frontier
+    magnetEnabled: false
+#  - type: StaticPrice # Frontier
+#    price: 2000
 
 - type: entity
   id: FlatpackerNoBoardEffect
