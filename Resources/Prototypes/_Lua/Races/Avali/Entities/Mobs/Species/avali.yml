@@ -60,6 +60,13 @@
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "underwearb" ] # Sirena-Underwear
       - map: [ "underweart" ] # Sirena-Underwear
+      # Ensure local stencil buffer is cleared before any clothing with displacement/shader writes.
+      # This prevents clothes from disappearing in UI previews and with vision overlays.
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+        # Using a full-size human limb as a harmless quad to clear the stencil in the entity's draw region.
+        # See similar usage in vulpkanin species prototype.
+        state: l_leg
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
       - map: [ "enum.HumanoidVisualLayers.LFoot" ]
