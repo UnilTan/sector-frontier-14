@@ -9,9 +9,6 @@
     snapCardinals: true
     layers:
     - state: base
-    - state: screen
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: packing
