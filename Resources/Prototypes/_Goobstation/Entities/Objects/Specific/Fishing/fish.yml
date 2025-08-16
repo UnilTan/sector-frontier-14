@@ -17,8 +17,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
   - type: SolutionContainerManager
     solutions:
       food:
@@ -38,8 +38,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishAlien
@@ -55,8 +55,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishAngler
@@ -72,8 +72,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishBass
@@ -89,8 +89,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishBingle
@@ -106,8 +106,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishBlob
@@ -123,8 +123,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishBlueFintuna
@@ -140,8 +140,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 # - type: entity
 #   id: FishBoyFisher
@@ -169,8 +169,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishTropicalClown
@@ -186,8 +186,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 # - type: entity
 #   id: FishNukeDisk
@@ -215,8 +215,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishMutant
@@ -232,8 +232,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 # - type: entity
 #   id: FishNuker
@@ -261,8 +261,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishSilver
@@ -278,8 +278,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishTropicalSun
@@ -295,8 +295,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishToxic
@@ -312,8 +312,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 - type: entity
   id: FishTropical
@@ -329,8 +329,8 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatFishGeneric
-      min: 1
-      max: 3
+      amount: 1
+      maxAmount: 3
 
 # - type: entity
 #   id: FishIan
