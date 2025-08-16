@@ -22,8 +22,8 @@
         - !type:OrganType
           type: Ariral
           shouldHave: true
-        Reagent: AriralBlood
-        Amount: -2
+        reagent: AriralBlood
+        amount: -2
       - !type:ChemVomit
         conditions:
         - !type:OrganType
