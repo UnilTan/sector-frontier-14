@@ -47,8 +47,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.25
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
         density: 1000
         mask:
         - MobMask
@@ -152,8 +152,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.45
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 400
         mask:
         - MobMask
@@ -190,8 +190,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.45
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 450
         mask:
         - MobMask
@@ -227,8 +227,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.45
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 15500
         mask:
         - MobMask
@@ -268,8 +268,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.45
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 1350
         mask:
         - MobMask
@@ -299,8 +299,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.35
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
         density: 235
         mask:
         - MobMask
@@ -363,8 +363,8 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.45
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
         density: 235
         mask:
         - MobMask
