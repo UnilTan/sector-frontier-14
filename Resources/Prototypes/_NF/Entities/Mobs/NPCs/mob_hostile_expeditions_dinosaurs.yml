@@ -92,7 +92,6 @@
   - BaseMobDinosaurExpeditions
   name: compsognathus
   description: Compsognathus is a genus of small, bipedal, carnivorous theropods. They have long hind legs and longer tails, which they used for balance during locomotion. Their forelimbs are small but beware of their claws.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -109,6 +108,17 @@
         Base: compy_dead
       Dead:
         Base: compy_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -130,7 +140,6 @@
   - BaseMobDinosaurExpeditions
   name: dilophosaurus
   description: With a name meaning "two-crested lizard", these measure in at about 7 m in length and 400 kg in weight. Slender and lightly built, these are very agile.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -146,6 +155,17 @@
         Base: dilo_dead
       Dead:
         Base: dilo_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.75,0.5,0.75"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -165,7 +185,6 @@
   - BaseMobDinosaurExpeditions
   name: velociraptor
   description: A bipedal, featherless carnivore with a long tail. Each of its hindfeet has an enlarged sickle-shaped claw, which is used to tackle and restrain prey. Very fast, exercise caution.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -189,6 +208,17 @@
         Base: raptor_dead
       Dead:
         Base: raptor_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.8,-0.8,0.8,0.8"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -205,7 +235,6 @@
   id: MobDinosaurParaExpeditions
   name: parasaurolophus
   description: A large carnivore that can reach over 9 metres (30 ft) long and weigh over 5 metric tons (5.5 short tons), these can move on two legs or four. Reasonably fast for its size, but comparatively fragile and weak.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -229,6 +258,17 @@
         Base: para_dead
       Dead:
         Base: para_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.9,1.5,0.9"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -247,7 +287,6 @@
   id: MobDinosaurKentroExpeditions
   name: kentrosaurus
   description: On the smaller side of dinosaurs, Kentrosaurus generally measure around 4–4.5 m, and weigh about 700–1,600 kg. Its elongated head and beak are used to bite off plant material or tear off limbs.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -271,6 +310,17 @@
         Base: kentro_dead
       Dead:
         Base: kentro_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.0,1.5,1.0"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud
@@ -289,7 +339,6 @@
   id: MobDinosaurTrikeExpeditions
   name: triceratops
   description: Bearing a large bony frill with three horns on its skull, this massive quadruped is one of the most recognizable of all dinosaurs and the best-known ceratopsian. Typically tries to gore whatever it attacks.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -313,6 +362,17 @@
         Base: trike_dead
       Dead:
         Base: trike_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.0,1.5,1.0"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -371,7 +431,6 @@
   id: MobDinosaurSpinoExpeditions
   name: spinosaurus
   description: With a typical length of 14 m and a mass of 7.4 tons, Spinosaurus has large, robust forelimbs. Each of its hands has three-fingers, with an enlarged claw on the first digit. Surprisingly quick for its size, this giant can take a lot of punishment.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -395,6 +454,17 @@
         Base: spino_dead
       Dead:
         Base: spino_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-1.0,2.5,1.0"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -413,7 +483,6 @@
   id: MobDinosaurStegoExpeditions
   name: stegosaurus
   description: Large and heavily built, these herbivorous quadrupeds have rounded backs, short fore limbs, long hind limbs, and tails held high in the air. Lumbering, but lethal up close.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -437,6 +506,17 @@
         Base: stego_dead
       Dead:
         Base: stego_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.8,-0.9,1.8,0.9"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -456,7 +536,6 @@
   id: MobDinosaurTrexExpeditions
   name: tyrannosaurus
   description: A massive therapod, its giant thorax is balanced by a long, heavy tail. Relative to its large and powerful hind limbs, the forelimbs of Tyrannosaurus are short but incredible powerful for their size, and they have two clawed digits.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -480,6 +559,17 @@
         Base: trex_dead
       Dead:
         Base: trex_dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.3,-1.0,2.3,1.0"
+        density: 1000
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -509,7 +599,6 @@
   id: TRexRoarGun
   name: TRex Roar Gun
   description: Needed to emit the roar.
-  categories: [ HideSpawnMenu ]
   components:
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 40
@@ -531,7 +620,6 @@
 - type: entity
   id: ActionTRexRoar
   parent: BaseAction
-  categories: [ HideSpawnMenu ]
   name: "[color=yellow]Roar[/color]"
   description: "Emits a powerful roar, intimidating and stunning nearby foe. [color=yellow]40 second cooldown.[/color]"
   components:
