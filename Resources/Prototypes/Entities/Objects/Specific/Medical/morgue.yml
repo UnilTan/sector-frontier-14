@@ -132,7 +132,7 @@
       food:
         maxVol: 50
         reagents:
-        - ReagentId: Carbon
+        - ReagentId: Ash
           Quantity: 1
   - type: Extractable
     grindableSolutionName: food
