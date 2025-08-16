@@ -176,7 +176,7 @@
     - Meat
     - Fish
   - type: Sprite
-    state: fish
+    state: fish_fillet
   - type: SolutionContainerManager
     solutions:
       food:
