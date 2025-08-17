@@ -48,7 +48,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 1000
         mask:
         - MobMask
@@ -153,7 +153,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 400
         mask:
         - MobMask
@@ -191,7 +191,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+          bounds: "-0.375,-0.375,0.375,0.375"
         density: 450
         mask:
         - MobMask
@@ -228,7 +228,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 15500
         mask:
         - MobMask
@@ -269,7 +269,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 1350
         mask:
         - MobMask
