@@ -61,7 +61,7 @@
       ui: !type:LedgerUi
     - type: Cartridge
       programName: ledger-program-name
-      icon: _NF/Interface/icons.rsi/ledger
+      icon: _NF/Interface/icons.rsi/ledger.png
       readonly: true
     - type: NFLedgerCartridge
 
@@ -81,7 +81,7 @@
       ui: !type:YupiTransferUi
     - type: Cartridge
       programName: yupi-program-name
-      icon: _NF/Interface/icons.rsi/ledger
+      icon: _NF/Interface/icons.rsi/ledger.png
     - type: YupiTransferCartridge
 
 # Not a PDA cartridge (then why is this here)
