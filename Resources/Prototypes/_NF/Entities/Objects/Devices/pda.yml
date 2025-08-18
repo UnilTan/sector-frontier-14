@@ -16,7 +16,8 @@
     diskSpace: 20
     preinstalled:
       - CrewManifestCartridge
-      - NotekeeperCartridge
+      # - NotekeeperCartridge
+      - YupiTransferCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
       - BountyContractsCartridge
@@ -151,7 +152,7 @@
   - type: CartridgeLoader # Extended with the ledger
     preinstalled:
     - CrewManifestCartridge
-    - NotekeeperCartridge
+    - YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - BountyContractsCartridge
@@ -373,7 +374,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - NotekeeperCartridge
+    - YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - BountyContractsCartridge
@@ -488,7 +489,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - NotekeeperCartridge
+    - YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - BountyContractsCartridge
@@ -535,7 +536,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - NotekeeperCartridge
+    - YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - BountyContractsCartridge

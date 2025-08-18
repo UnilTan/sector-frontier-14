@@ -41,3 +41,19 @@ ledger-entry-type-StationWithdrawalWorkOrder = Work Orders
 ledger-entry-type-StationWithdrawalSupplies = Supply Expenses
 ledger-entry-type-StationWithdrawalBounty = Bounties
 ledger-entry-type-StationWithdrawalOther = Misc. Expenses
+
+yupi-program-name = ЮПИ Переводы
+yupi-incoming-transfer = Обнаружен входящий перевод с счёта "{ $code }" в размере { $amount } кредитов.
+yupi-outgoing-transfer = Обнаружен исходящий перевод со счёта "{ $code }" в размере { $amount } кредитов.
+yupi-error-invalid-target = Получатель не найден или оффлайн.
+yupi-error-self-transfer = Нельзя переводить самому себе.
+yupi-error-invalid-amount = Неверная сумма.
+yupi-error-over-50k = Нельзя отправить более 50 000 за один перевод.
+yupi-error-window-limit = Превышен лимит переводов за 30 минут.
+
+# UI labels for YUPI
+yupi-ui-own-code = Ваш ЮПИ:
+yupi-ui-balance = Баланс:
+yupi-ui-target-code = Код получателя:
+yupi-ui-amount = Сумма:
+yupi-ui-send = Отправить

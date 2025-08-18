@@ -117,7 +117,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
-      - NotekeeperCartridge
+      - YupiTransferCartridge
       - NewsReaderCartridge
       - MedTekCartridge
   - type: GuideHelp

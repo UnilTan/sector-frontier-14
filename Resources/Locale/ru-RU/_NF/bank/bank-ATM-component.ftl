@@ -12,6 +12,7 @@ bank-atm-menu-transaction-denied = Транзакция отклонена
 bank-atm-menu-deposit-successful = Депозит принят
 bank-atm-menu-withdraw-successful = Перевод одобрен
 bank-atm-menu-wrong-cash = Неправильный тип валюты!
+bank-atm-yupi-code = Ваш номер ЮПИ: { $code }
 station-bank-atm-menu-title = Администрация Станции
 station-bank-fines = Штраф
 station-bank-donation = Пожертвование
