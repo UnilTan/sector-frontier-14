@@ -90,7 +90,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
       - BountyContractsCartridge # Frontier
@@ -173,7 +173,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - YupiTransferCartridge
+    - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - BountyContractsCartridge # Frontier
@@ -190,7 +190,7 @@
   #   uiKey: enum.PdaUiKey.Key
   #   preinstalled:
   #     - CrewManifestCartridge
-  #     - YupiTransferCartridge
+  #     - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
   #     - NanoTaskCartridge
   #     - NewsReaderCartridge
   #     - MedTekCartridge
@@ -554,7 +554,7 @@
   #   uiKey: enum.PdaUiKey.Key
   #   preinstalled:
   #     - CrewManifestCartridge
-  #     - YupiTransferCartridge
+  #     - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
   #     - NanoTaskCartridge
   #     - NewsReaderCartridge
   #     - AstroNavCartridge
@@ -905,7 +905,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - YupiTransferCartridge
+    - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
@@ -974,7 +974,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
@@ -1001,7 +1001,7 @@
     notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
@@ -1125,7 +1125,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - AstroNavCartridge # Frontier
 
@@ -1153,7 +1153,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
@@ -1326,7 +1326,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - YupiTransferCartridge
+    - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
@@ -1354,7 +1354,7 @@
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
-    - YupiTransferCartridge
+    - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
@@ -1502,7 +1502,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
-      - YupiTransferCartridge
+      - YupiTransferCartridge #Lua: NotekeeperCartridge<YupiTransferCartridge
       - NanoTaskCartridge
       - MedTekCartridge
 
