@@ -14,7 +14,7 @@
   </BoxContainer>
   <BoxContainer Orientation="Horizontal">
     <Label Name="LblTargetCodeTitle" Text="Код получателя:"/>
-    <LineEdit Name="CodeInput" PlaceHolder="X2Y3D8" HorizontalExpand="True"/>
+    <LineEdit Name="CodeInput" PlaceHolder="H2U2D8" HorizontalExpand="True"/>
   </BoxContainer>
   <BoxContainer Orientation="Horizontal">
     <Label Name="LblAmountTitle" Text="Сумма:"/>
