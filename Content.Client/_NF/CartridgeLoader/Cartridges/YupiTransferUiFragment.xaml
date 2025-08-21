@@ -13,10 +13,6 @@
     <Label Name="Balance" Text="0"/>
   </BoxContainer>
   <BoxContainer Orientation="Horizontal">
-    <Label Name="LblDueTitle" Text="Задолженность по кредиту:"/>
-    <Label Name="Due" Text="0"/>
-  </BoxContainer>
-  <BoxContainer Orientation="Horizontal">
     <Label Name="LblTargetCodeTitle" Text="Код получателя:"/>
     <LineEdit Name="CodeInput" PlaceHolder="H2U2D8" HorizontalExpand="True"/>
   </BoxContainer>
@@ -24,15 +20,12 @@
     <Label Name="LblAmountTitle" Text="Сумма:"/>
     <LineEdit Name="AmountInput" PlaceHolder="1000" HorizontalExpand="True"/>
   </BoxContainer>
-  <BoxContainer Orientation="Horizontal" SeparationOverride="6">
-    <Button Name="SendButton" Text="Отправить" HorizontalExpand="True"/>
-    <Button Name="RepayButton" Text="Погасить кредит" HorizontalExpand="True"/>
-  </BoxContainer>
+  <Button Name="SendButton" Text="Отправить" HorizontalExpand="True"/>
   <Control VerticalExpand="True"/>
   <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
     <TextureRect Name="BankLogo"
-                 TexturePath="/Textures/_Lua/Icon_bank/Nanotrahen_logo_invert.png"
+                 TexturePath="/Textures/_NF/Logo/logo.png"
                  Stretch="KeepAspectCentered"
-                 SetSize="256 128"/>
+                 SetSize="320 140"/>
   </BoxContainer>
 </cartridges:YupiTransferUiFragment>

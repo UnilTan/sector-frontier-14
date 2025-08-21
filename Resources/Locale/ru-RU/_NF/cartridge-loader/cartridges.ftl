@@ -1,7 +1,3 @@
-# LuaWorld - This file is licensed under AGPLv3
-# Copyright (c) 2025 LuaWorld Contributors
-# See AGPLv3.txt for details.
-
 # Оценочный картридж
 appraisal-program-name = ОцениВСЁ Плюс
 appraisal-label-name = Предмет
@@ -61,7 +57,3 @@ yupi-ui-balance = Баланс:
 yupi-ui-target-code = Код получателя:
 yupi-ui-amount = Сумма:
 yupi-ui-send = Отправить
-yupi-ui-repay = Погасить кредит
-yupi-repay-success = Погашено { $amount } кредитов по займу.
-yupi-ui-outstanding = Остаток по кредиту:
-yupi-repay-nothing = Нет задолженности для погашения.
