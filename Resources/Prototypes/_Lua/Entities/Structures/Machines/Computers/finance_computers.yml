@@ -23,9 +23,7 @@
       state: generic_keys
   - type: ActivatableUI
     key: enum.NFFinanceLoansUiKey.Key
-    requiresComplexUser: true
     singleUser: true
-    canUseWhileDead: false
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access: [[ "Service" ]]
@@ -58,9 +56,7 @@
       state: generic_keys
   - type: ActivatableUI
     key: enum.NFFinanceDepositUiKey.Key
-    requiresComplexUser: true
     singleUser: false
-    canUseWhileDead: false
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -104,9 +100,7 @@
       state: generic_keys
   - type: ActivatableUI
     key: enum.NFFinanceRatingUiKey.Key
-    requiresComplexUser: true
     singleUser: true
-    canUseWhileDead: false
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -152,9 +146,7 @@
     access: [[ "Command" ]]
   - type: ActivatableUI
     key: enum.NFFinanceIssuanceUiKey.Key
-    requiresComplexUser: true
     singleUser: true
-    canUseWhileDead: false
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -198,9 +190,7 @@
       state: generic_keys
   - type: ActivatableUI
     key: enum.NFFinanceLoansUiKey.Key
-    requiresComplexUser: true
     singleUser: true
-    canUseWhileDead: false
   - type: FinanceLoansConsole
   - type: UserInterface
     interfaces:
@@ -232,9 +222,7 @@
     access: [[ "Command" ]]
   - type: ActivatableUI
     key: enum.NFFinanceLoansUiKey.Key
-    requiresComplexUser: true
     singleUser: true
-    canUseWhileDead: false
   - type: FinanceLoansConsole
   - type: UserInterface
     interfaces:
