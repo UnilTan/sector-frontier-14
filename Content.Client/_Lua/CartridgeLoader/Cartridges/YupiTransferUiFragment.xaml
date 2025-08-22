@@ -1,5 +1,5 @@
 <cartridges:YupiTransferUiFragment
-    xmlns:cartridges="clr-namespace:Content.Client._NF.CartridgeLoader.Cartridges"
+    xmlns:cartridges="clr-namespace:Content.Client._Lua.CartridgeLoader.Cartridges;assembly=Content.Client"
     xmlns="https://spacestation14.io"
     Orientation="Vertical"
     Margin="5"

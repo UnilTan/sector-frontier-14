@@ -12,7 +12,7 @@ using static Content.Shared._NF.Finance.Events.DepositTermType;
 using static Content.Shared._NF.Finance.Events.DepositRateModel;
 using Robust.Shared.Localization; //Lua
 
-namespace Content.Client._NF.Finance.UI;
+namespace Content.Client._Lua.Finance.UI;
 
 public sealed partial class NFFinanceDepositWindow : DefaultWindow
 {

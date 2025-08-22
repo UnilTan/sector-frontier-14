@@ -13,7 +13,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Utility;
 using Content.Shared.CartridgeLoader;
 
-namespace Content.Client._NF.CartridgeLoader.Cartridges;
+namespace Content.Client._Lua.CartridgeLoader.Cartridges;
 
 [GenerateTypedNameReferences]
 public sealed partial class YupiTransferUiFragment : BoxContainer

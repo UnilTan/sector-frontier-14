@@ -8,7 +8,7 @@ using Content.Shared.UserInterface;
 using Content.Shared._NF.Finance.BUI;
 using Content.Shared._NF.Finance.Events;
 using Robust.Client.UserInterface;
-using Content.Client._NF.Finance.UI;
+using Content.Client._Lua.Finance.UI; //Lua
 
 namespace Content.Client._NF.Finance.BUI;
 

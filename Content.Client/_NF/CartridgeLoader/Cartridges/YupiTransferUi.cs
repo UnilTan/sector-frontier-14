@@ -2,6 +2,7 @@ using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Fragments;
 using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.Bank.Events;
+using Content.Client._Lua.CartridgeLoader.Cartridges; //Lua
 
 namespace Content.Client._NF.CartridgeLoader.Cartridges;
 

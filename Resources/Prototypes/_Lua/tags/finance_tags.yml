@@ -1,0 +1,13 @@
+# LuaWorld - This file is licensed under AGPLv3
+
+- type: Tag
+  id: NFFinanceLoansConsole
+
+- type: Tag
+  id: NFFinanceDepositConsole
+
+- type: Tag
+  id: NFFinanceRatingConsole
+
+- type: Tag
+  id: NFFinanceIssuanceConsole

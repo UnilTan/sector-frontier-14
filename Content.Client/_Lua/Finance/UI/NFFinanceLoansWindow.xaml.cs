@@ -15,7 +15,7 @@ using System;
 using System.Linq;
 using Robust.Shared.Localization;
 
-namespace Content.Client._NF.Finance.UI;
+namespace Content.Client._Lua.Finance.UI;
 
 public sealed partial class NFFinanceLoansWindow : DefaultWindow
 {

@@ -10,7 +10,7 @@ using Content.Shared._NF.Finance.Events;
 using Robust.Client.Graphics;
 using Robust.Shared.Maths;
 
-namespace Content.Client._NF.Finance.UI;
+namespace Content.Client._Lua.Finance.UI;
 
 public sealed partial class NFFinanceIssuanceWindow : DefaultWindow
 {
