@@ -27,6 +27,9 @@ using Robust.Shared.Prototypes; // Frontier
 using Robust.Shared.Timing; // Frontier
 using Content.Shared.Weapons.Melee.Events; // Frontier
 using Content.Shared.Emag.Systems; // Frontier
+using Robust.Shared.Map; // Frontier: EntityCoordinates
+using System.Numerics; // Frontier: Vector2
+using Robust.Shared.GameObjects; // Frontier: SharedTransformSystem
 
 namespace Content.Shared._Goobstation.Vehicles; // Frontier: migrate under _Goobstation
 
@@ -48,6 +51,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!; // Frontier
     [Dependency] private readonly SharedPopupSystem _popup = default!; // Frontier
     [Dependency] private readonly UnpoweredFlashlightSystem _flashlight = default!; // Frontier
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Frontier: ensure rider stays parented
 
     public static readonly EntProtoId HornActionId = "ActionHorn";
     public static readonly EntProtoId SirenActionId = "ActionSiren";
@@ -246,6 +250,21 @@ public abstract partial class SharedVehicleSystem : EntitySystem
                 HasComp<VehicleComponent>(vehicle))
             {
                 EnsureHandsAreCorrect(rider, vehicle);
+            }
+
+            // Frontier: Ensure rider remains parented to the vehicle's strap after collisions
+            if (TryComp(rider, out BuckleComponent? buckle) && buckle.BuckledTo is { } strapEnt)
+            {
+                var strapUid = strapEnt;
+                if (HasComp<VehicleComponent>(strapUid))
+                {
+                    var riderXform = Transform(rider);
+                    if (riderXform.ParentUid != strapUid)
+                    {
+                        var coords = new EntityCoordinates(strapUid, Vector2.Zero);
+                        _transform.SetCoordinates(rider, riderXform, coords, rotation: null);
+                    }
+                }
             }
         }
     }
