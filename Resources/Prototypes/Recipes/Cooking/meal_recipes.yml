@@ -1482,6 +1482,19 @@
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
+  id: RecipeSashimiFish
+  name: sashimi recipe (fish fillet)
+  result: FoodMealSashimi
+  time: 15
+  group: Savory
+  reagents:
+    TableSalt: 1
+  solids:
+    FoodMeatFishGeneric: 2
+  recipeType: Assembler # Frontier
+  hideInGuidebook: true
+
+- type: microwaveMealRecipe
   id: RecipeMisoColaSoup
   name: salty sweet misocola soup recipe
   result: DisgustingSweptSoup
