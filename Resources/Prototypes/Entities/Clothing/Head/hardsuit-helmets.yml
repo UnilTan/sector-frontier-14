@@ -190,7 +190,7 @@
     lowPressureMultiplier: 1000
 
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ] # Lua add: ClothingHeadSuitWithLightBase
   id: ClothingHeadHelmetHardsuitMaxim
   categories: [ HideSpawnMenu ]
   name: salvager maxim helmet
@@ -200,8 +200,9 @@
     sprite: Clothing/Head/Hardsuits/maxim.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/maxim.rsi
-    equippedPrefix: off #Lua: enable on/off equipped prefixes for light visuals
-  - type: ToggleableVisuals #Lua: switch head visuals for light on/off (including vox)
+    # Lua start
+    equippedPrefix: off
+  - type: ToggleableVisuals
     spriteLayer: light
     clothingVisuals:
       head:
@@ -212,6 +213,7 @@
       - state: on-equipped-HELMET-vox
   - type: PointLight
     color: '#FFFFFF'
+    # Lua end
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
