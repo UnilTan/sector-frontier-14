@@ -51,9 +51,9 @@ namespace Content.Server.Carrying
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
 
-        public const float BaseDistanceCoeff = 0.5f; //Lua: default throwing speed reduction
-        public const float MaxDistanceCoeff = 1.0f; //Lua: default throwing speed reduction
-        public const float DefaultMaxThrowDistance = 4.0f; //Lua: maximum throwing distance
+        public const float BaseDistanceCoeff = 0.5f; // Frontier: default throwing speed reduction
+        public const float MaxDistanceCoeff = 1.0f; // Frontier: default throwing speed reduction
+        public const float DefaultMaxThrowDistance = 4.0f; // Frontier: maximum throwing distance
 
         public override void Initialize()
         {
@@ -83,6 +83,7 @@ namespace Content.Server.Carrying
             if (!args.CanInteract || !args.CanAccess || !_mobStateSystem.IsAlive(args.User)
                 || !CanCarry(args.User, uid, component)
                 || HasComp<CarryingComponent>(args.User)
+                || HasComp<CantCarryOthersComponent>(args.User)
                 || HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target)
                 || args.User == args.Target)
                 return;
@@ -146,14 +147,14 @@ namespace Content.Server.Carrying
 
             args.ItemUid = virtItem.BlockingEntity;
 
-            var contestCoeff = _contests.MassContest(uid, virtItem.BlockingEntity, false, 2f) //Lua: "args.throwSpeed *="<"var contestCoeff ="
+            var contestCoeff = _contests.MassContest(uid, virtItem.BlockingEntity, false, 2f) // Frontier: "args.throwSpeed *="<"var contestCoeff ="
                                 * _contests.StaminaContest(uid, virtItem.BlockingEntity);
 
-            //Lua: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
+            // Frontier: sanitize our range regardless of CVar values - TODO: variable throw distance ranges (via traits, etc.)
             contestCoeff = float.Min(BaseDistanceCoeff * contestCoeff, MaxDistanceCoeff);
             if (args.Direction.Length() > DefaultMaxThrowDistance * contestCoeff)
                 args.Direction = args.Direction.Normalized() * DefaultMaxThrowDistance * contestCoeff;
-            // End Lua
+            // End Frontier
         }
 
         private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
@@ -253,22 +254,22 @@ namespace Content.Server.Carrying
                 return;
             }
 
-            var length = component.PickupDuration //Lua: removed outer TimeSpan.FromSeconds()
+            var length = component.PickupDuration // Frontier: removed outer TimeSpan.FromSeconds()
                         * _contests.MassContest(carriedPhysics, carrierPhysics, false, 4f)
                         * _contests.StaminaContest(carrier, carried)
                         * (_standingState.IsDown(carried) ? 0.5f : 1);
 
-            //Lua: sanitize pickup time duration regardless of CVars - no near-instant pickups.
+            // Frontier: sanitize pickup time duration regardless of CVars - no near-instant pickups.
             var duration = TimeSpan.FromSeconds(
                 float.Clamp(length,
                 component.MinPickupDuration,
                 component.MaxPickupDuration));
-            // End Lua
+            // End Frontier
 
             component.CancelToken = new CancellationTokenSource();
 
             var ev = new CarryDoAfterEvent();
-            var args = new DoAfterArgs(EntityManager, carrier, duration, ev, carried, target: carried) //Lua: length<duration
+            var args = new DoAfterArgs(EntityManager, carrier, duration, ev, carried, target: carried) // Frontier: length<duration
             {
                 BreakOnMove = true,
                 NeedHand = true
@@ -349,6 +350,7 @@ namespace Content.Server.Carrying
                 || carriedComp.CancelToken != null
                 || !HasComp<MapGridComponent>(Transform(carrier).ParentUid)
                 || HasComp<BeingCarriedComponent>(carrier)
+                || HasComp<CantCarryOthersComponent>(carrier)
                 || HasComp<BeingCarriedComponent>(carried)
                 || !TryComp<HandsComponent>(carrier, out var hands)
                 || hands.CountFreeHands() < carriedComp.FreeHandsRequired)
@@ -359,7 +361,7 @@ namespace Content.Server.Carrying
 
         public override void Update(float frameTime)
         {
-            //Lua: query for transform
+            // Frontier: query for transform
             var query = EntityQueryEnumerator<BeingCarriedComponent, TransformComponent>();
             while (query.MoveNext(out var carried, out var comp, out var xform))
             {
@@ -378,10 +380,10 @@ namespace Content.Server.Carrying
                 // Make sure the carried entity is always centered relative to the carrier, as gravity pulls can offset it otherwise
                 if (!xform.LocalPosition.Equals(Vector2.Zero))
                 {
-                    _transform.SetLocalPosition(carried, Vector2.Zero, xform); //Lua: warning suppression
+                    _transform.SetLocalPosition(carried, Vector2.Zero, xform); // Frontier: warning suppression
                 }
             }
-            // End Lua: query for transform
+            // End Frontier: query for transform
             query.Dispose();
         }
     }

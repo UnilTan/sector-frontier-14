@@ -328,6 +328,8 @@ public sealed class PartExchangerSystem : EntitySystem
         {
             _popup.PopupEntity(Loc.GetString("construction-step-condition-wire-panel-open"),
                 args.Target.Value);
+            // Не даём Dumpable вывалить содержимое на поверхность, если панель закрыта
+            args.Handled = true;
             return;
         }
 
@@ -342,5 +344,8 @@ public sealed class PartExchangerSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true
         });
+
+        // Помечаем событие обработанным, чтобы RPED не пытался вывалить содержимое на PlaceableSurface
+        args.Handled = true;
     }
 }
