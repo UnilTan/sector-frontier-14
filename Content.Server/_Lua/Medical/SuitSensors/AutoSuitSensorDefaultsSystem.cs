@@ -7,7 +7,7 @@ using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Roles;
 using Robust.Shared.Timing;
 
-namespace Content.Server._NF.Medical.SuitSensors;
+namespace Content.Server._Lua.Medical.SuitSensors;
 
 /// <summary>
 /// Sets default behavior for suit sensors:
@@ -24,52 +24,50 @@ public sealed class AutoSuitSensorDefaultsSystem : EntitySystem
     {
         base.Initialize();
 
-        // После экипировки стартового снаряжения включаем датчики для подходящих ролей.
-        SubscribeLocalEvent<StartingGearEquippedEvent>(OnStartingGearEquipped);
+            SubscribeLocalEvent<StartingGearEquippedEvent>(OnStartingGearEquipped); //Lua: after starting gear equip - enable sensors for allowed roles
     }
 
     private void OnStartingGearEquipped(ref StartingGearEquippedEvent args)
     {
         var wearer = args.Entity;
 
-        // Делаем действие чуть позже, чтобы все job specials (включая компонент пиратов) успели примениться.
+        //Lua: delay so job specials/components are applied before checking exclusions
         Timer.Spawn(TimeSpan.FromMilliseconds(100), () =>
         {
-            // Пираты: датчики должны быть выключены.
+            //Lua: pirates - force sensors OFF
             if (HasComp<DisableSuitSensorsComponent>(wearer))
             {
                 _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                 return;
             }
 
-            // Синдикаты (ядерные оперативники): датчики выключены.
+            //Lua: nuke ops/syndicate operatives - sensors OFF
             if (HasComp<Content.Shared.NukeOps.NukeOperativeComponent>(wearer))
             {
                 _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                 return;
             }
 
-            // Синдикаты/пираты/мерки: проверяем иконку работы и теги доступа на ID.
+            //Lua: exclude by job icon/access tags (Syndicate/Pirate/Merc)
             if (_idCard.TryFindIdCard(wearer, out var delayedId))
             {
-                // Проверка иконок работ
-                var jobIcon = delayedId.Comp.JobIcon;
-                var jobIconStr = jobIcon.ToString();
-                if (!string.IsNullOrEmpty(jobIconStr))
+                //Lua: job icon check (avoid ToString() on nullable string)
+                var jobIconStr = delayedId.Comp.JobIcon; //Lua: fix possible NRE by using the string directly
+                if (!string.IsNullOrEmpty(jobIconStr)) //Lua: guard against null/empty
                 {
-                    // Mercenary
+                    //Lua: mercenary
                     if (jobIconStr == "JobIconMercenary")
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                         return;
                     }
-                    // Syndicate (любые варианты, начинающиеся с JobIconSyndicate)
+                    //Lua: any syndicate icon (prefix match)
                     if (jobIconStr.StartsWith("JobIconSyndicate"))
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                         return;
                     }
-                    // Pirates (любой из JobIconNFPirate*)
+                    //Lua: any pirate icon (prefix match)
                     if (jobIconStr.StartsWith("JobIconNFPirate"))
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
@@ -77,22 +75,22 @@ public sealed class AutoSuitSensorDefaultsSystem : EntitySystem
                     }
                 }
 
-                // Проверка тегов доступа
+                //Lua: access tag check (Mercenary/Syndicate/NFSyndicate/Pirate)
                 if (TryComp<AccessComponent>(delayedId.Owner, out var delayedAccess))
                 {
-                    // Mercenary
+                    //Lua: mercenary
                     if (delayedAccess.Tags.Contains("Mercenary"))
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                         return;
                     }
-                    // Syndicate/NFSyndicate
+                    //Lua: syndicate
                     if (delayedAccess.Tags.Contains("Syndicate") || delayedAccess.Tags.Contains("NFSyndicate"))
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
                         return;
                     }
-                    // Pirates
+                    //Lua: pirates
                     if (delayedAccess.Tags.Contains("Pirate"))
                     {
                         _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorOff, SlotFlags.All);
@@ -101,10 +99,11 @@ public sealed class AutoSuitSensorDefaultsSystem : EntitySystem
                 }
             }
 
-            // По умолчанию на раундстарте включаем датчики (Vitals) всем остальным.
+            //Lua: default for roundstart - turn sensors ON (Vitals) for everyone else
             _suitSensors.SetAllSensors(wearer, SuitSensorMode.SensorVitals, SlotFlags.All);
         });
     }
 }
+
 
 
