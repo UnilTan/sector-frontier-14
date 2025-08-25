@@ -22,7 +22,7 @@ public sealed partial class CargoPalletMenu : FancyWindow
 
     public void SetAppraisal(int amount)
     {
-        AppraisalLabel.Text = BankSystemExtensions.ToSpesoString(amount);
+        AppraisalLabel.Text = BankSystemExtensions.ToSpesoString(amount); // Suffixed to avoid BUI collisions (see RT#5648)
     }
 
     // Lua start
