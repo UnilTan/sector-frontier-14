@@ -216,8 +216,8 @@
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
-    radius: 9
-    energy: 6
+    radius: 9 #Lua: increased flashlight radius for better visibility on Frontier  || 3
+    energy: 6 #Lua: increased flashlight intensity to match agreed Frontier values || 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: false
@@ -232,8 +232,8 @@
         id: radiating
         interpolate: Linear
         maxDuration: 2.0
-        startValue: 9.0
-        endValue: 6.0
+        startValue: 9.0 #Lua: synced with increased radius || 3
+        endValue: 6.0 #Lua: synced with increased intensity || 2
         isLooped: true
         reverseWhenFinished: true
       - !type:PulseBehaviour
@@ -244,11 +244,11 @@
         endValue: 2.0 # Wizden#37444
         isLooped: true
   - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    maxCharge: 600 #Lua: verify balance with stronger light lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+    autoRechargeRate: 2 #Lua: unchanged consumption recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
   - type: HideLayerClothing
     slots:
     - Hair

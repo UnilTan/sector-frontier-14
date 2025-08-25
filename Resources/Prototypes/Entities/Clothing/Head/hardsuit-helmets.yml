@@ -200,6 +200,16 @@
     sprite: Clothing/Head/Hardsuits/maxim.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/maxim.rsi
+    equippedPrefix: off #Lua: enable on/off equipped prefixes for light visuals
+  - type: ToggleableVisuals #Lua: switch head visuals for light on/off (including vox)
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: on-equipped-HELMET
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      - state: on-equipped-HELMET-vox
   - type: PointLight
     color: '#FFFFFF'
   - type: PressureProtection
