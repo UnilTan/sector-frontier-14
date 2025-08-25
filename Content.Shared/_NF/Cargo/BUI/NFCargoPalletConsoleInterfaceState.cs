@@ -3,23 +3,24 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._NF.Cargo.BUI;
 
 [NetSerializable, Serializable]
-public sealed class NFCargoPalletConsoleInterfaceState : BoundUserInterfaceState
+public sealed class NFCargoPalletConsoleInterfaceState : BoundUserInterfaceState // Lua delete: ( int appraisal, int count, bool enabled)
 {
     /// <summary>
     /// The estimated apraised value of all the entities on top of pallets on the same grid as the console.
     /// </summary>
-    public int Appraisal;
+    public int Appraisal; // Lua delete: = appraisal
 
     /// <summary>
     /// The number of entities on top of pallets on the same grid as the console.
     /// </summary>
-    public int Count;
+    public int Count; // Lua delete: = count
 
     /// <summary>
     /// True if the buttons should be enabled.
     /// </summary>
-    public bool Enabled;
+    public bool Enabled; // Lua delete: = enabled
 
+    // Lua start
     /// <summary>
     /// Localized summary string for UI: "Итог снижения цен".
     /// </summary>
@@ -49,4 +50,5 @@ public sealed class NFCargoPalletConsoleInterfaceState : BoundUserInterfaceState
         ReductionPercent = reductionPercent; //Lua
         MinimalUi = minimalUi;
     }
+    // Lua end
 }

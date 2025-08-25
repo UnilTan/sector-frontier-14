@@ -1,21 +1,21 @@
-using System.Linq;
+using Content.Server._Lua.Market.Systems; // Lua
+using Content.Server._NF.Cargo.Components; // Lua
 using Content.Server._NF.Cargo.Systems;
-using Content.Server._NF.Cargo.Components; // NFCargoPalletConsoleComponent
 using Content.Server._NF.Market.Components;
 using Content.Server._NF.Market.Extensions;
 using Content.Server.Storage.Components;
+using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Market;
 using Content.Shared._NF.Market.BUI;
 using Content.Shared._NF.Market.Events;
-using Content.Shared._NF.Bank.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Materials;
 using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
-using Content.Shared.Materials;
-using Content.Shared._NF.Market.Components; // MarketDomainComponent (shared)
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 
 
 namespace Content.Server._NF.Market.Systems;
@@ -32,6 +32,7 @@ public sealed partial class MarketSystem
         SubscribeLocalEvent<MarketConsoleComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
+    // Lua start
     private BaseMarketDynamicSystem? ResolveRoutingSystem(EntityUid grid)
     {
         // Prefer explicit consoles on the grid to decide routing; fallback to default.
@@ -66,6 +67,7 @@ public sealed partial class MarketSystem
         @default.LoadDomainConfig("DefaultMarket");
         return @default;
     }
+    // Lua end
 
     private void OnPowerChanged(EntityUid uid, MarketConsoleComponent component, ref PowerChangedEvent args)
     {
@@ -80,12 +82,14 @@ public sealed partial class MarketSystem
     /// <param name="entitySoldEvent">The details of the event</param>
     private void OnEntitySoldEvent(ref NFEntitySoldEvent entitySoldEvent)
     {
+        // Lua start
         // If sale source console does not contribute to market, ignore for pricing dynamics.
         if (TryComp<NFCargoPalletConsoleComponent>(entitySoldEvent.SourceConsole, out var pallet)
             && !pallet.ContributesToMarket)
         {
             return;
         }
+        // Lua end
 
         var station = _station.GetOwningStation(entitySoldEvent.Grid);
         if (station is null ||
@@ -96,9 +100,11 @@ public sealed partial class MarketSystem
 
         foreach (var sold in entitySoldEvent.Sold)
         {
+            // Lua start
             // Route to appropriate market system instance based on console type on the grid.
             var system = ResolveRoutingSystem(entitySoldEvent.Grid);
             system?.RegisterSaleForEntity(sold);
+            // Lua end
             UpsertEntity(market, sold);
         }
     }

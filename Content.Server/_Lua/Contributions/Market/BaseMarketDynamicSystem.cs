@@ -1,3 +1,7 @@
+// LuaWorld - This file is licensed under AGPLv3
+// Copyright (c) 2025 LuaWorld
+// See AGPLv3.txt for details.
+
 // Dynamic pricing base system used to provide isolated instances per console group.
 // This system tracks and updates per-prototype multipliers over time and on sales,
 // and supports category-specific parameters loaded from prototypes.
@@ -20,21 +24,20 @@ using Robust.Shared.Enums; // SessionStatus
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Server._NF.Market.Systems;
+namespace Content.Server._Lua.Market.Systems;
 
-// Base server-side system for dynamic pricing.
-// RU: Базовая серверная система динамического ценообразования.
-// Tracks per-prototype multipliers, time restoration, per-unit and bulk decay,
-// RU: Хранит множители по прототипам, восстанавливает их со временем,
-// RU: применяет поштучное и оптовое снижение, поддерживает параметры домена/категорий из MarketDomainConfigPrototype.
+/// <summary>
+/// Базовая серверная система динамического ценообразования.
+/// Хранит множители по прототипам, восстанавливает их со временем,
+/// применяет поштучное и оптовое снижение, поддерживает параметры домена/категорий из MarketDomainConfigPrototype.
+/// </summary>
 public abstract class BaseMarketDynamicSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
-    // Mutable state for a single prototype's dynamic multiplier and last update time.
-    // RU: Состояние: множитель для прототипа и время последнего обновления.
+    // Состояние: множитель для прототипа и время последнего обновления.
     protected sealed class DynamicPriceState
     {
         public double Multiplier = 1.0;
@@ -81,8 +84,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
             return OnlineDecayScaleMin + t * (OnlineDecayScaleMax - OnlineDecayScaleMin);
         }
 
-    // Product categories used to map entity prototypes to dynamic pricing parameters.
-    // RU: Категории товаров для подбора параметров динамики.
+    // Категории товаров для подбора параметров динамики.
     private enum MarketCategory
     {
         Chemistry,
@@ -96,8 +98,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         Unknown
     }
 
-    // Category-level dynamic configuration.
-    // RU: Параметры динамики на уровне категории.
+    // Параметры динамики на уровне категории.
     protected sealed class CategoryParams
     {
         public double DecayPerStack = 0.003;
@@ -132,8 +133,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         return state;
     }
 
-    // Applies time-based restoration if time elapsed since last update.
-    // RU: Применяет восстановление множителя по прошествии времени.
+    // Применяет восстановление множителя по прошествии времени.
     public void RestoreNow(string prototypeId)
     {
         var state = GetState(prototypeId);
@@ -154,16 +154,14 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         state.LastUpdateTime = now;
     }
 
-    // Gets current dynamic multiplier (after time-based restoration).
-    // RU: Возвращает текущий множитель после восстановления.
+    // Возвращает текущий множитель после восстановления.
     public double GetCurrentDynamicMultiplier(string prototypeId)
     {
         RestoreNow(prototypeId);
         return GetState(prototypeId).Multiplier * _domainBaseMultiplier;
     }
 
-    // Registers a sale and applies per-unit decay; skips excluded entities.
-    // RU: Регистрирует продажу и применяет поштучное снижение; исключения пропускаются.
+    // Регистрирует продажу и применяет поштучное снижение; исключения пропускаются.
     public void RegisterSaleForEntity(EntityUid sold)
     {
         if (EntityManager.HasComponent<IgnoreMarketModifierComponent>(sold))
@@ -192,8 +190,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         state.Multiplier = Math.Max(0.0, state.Multiplier - decay * count);
     }
 
-    // Applies one-off bulk decay for multi-unit batch sales.
-    // RU: Применяет разовое оптовое снижение при продаже пачкой.
+    // Применяет разовое оптовое снижение при продаже пачкой.
     public void ApplyBulkSaleEffect(string prototypeId, int batchCount)
     {
         if (batchCount <= 1)
@@ -206,8 +203,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         state.Multiplier = Math.Max(0.0, state.Multiplier - extra);
     }
 
-    // Returns a multiplier preview for a batch size without mutating state.
-    // RU: Возвращает прогноз множителя для размера партии без изменения состояния.
+    // Возвращает прогноз множителя для размера партии без изменения состояния.
     public double GetEffectiveMultiplierForBatch(string prototypeId, int batchCount)
     {
         RestoreNow(prototypeId);
@@ -217,8 +213,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         return Math.Max(0.0, state.Multiplier - extra) * _domainBaseMultiplier;
     }
 
-    // Calculates the projected multiplier right after completing a sale batch.
-    // RU: Считает множитель сразу после завершения продажи партии.
+    // Считает множитель сразу после завершения продажи партии.
     public double GetProjectedMultiplierAfterSale(string prototypeId, int batchCount)
     {
         RestoreNow(prototypeId);
@@ -231,8 +226,7 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
         return Math.Max(0.0, projected) * _domainBaseMultiplier;
     }
 
-    // Determines the prototype id used for dynamic tracking (stacks map to singular).
-    // RU: Определяет прототип для динамики (стаки приводятся к единичному).
+    // Определяет прототип для динамики (стаки приводятся к единичному).
     public bool TryGetDynamicPrototypeId(EntityUid uid, out string prototypeId)
     {
         prototypeId = string.Empty;
@@ -251,12 +245,11 @@ public abstract class BaseMarketDynamicSystem : EntitySystem
     public double GetDynamicMinAfterTaxBaseFraction() => DefaultDynamicMinAfterTaxBaseFraction; // RU: Минимальная доля от базовой цены после налога (по умолчанию)
     public double GetDynamicMinAfterTaxBaseFraction(string prototypeId) => GetParamsForPrototype(prototypeId).MinAfterTaxBaseFraction;
 
-    // Loads domain configuration by prototype id; if missing, keep defaults.
-    // RU: Загружает конфигурацию домена по id прототипа; при отсутствии — оставляет значения по умолчанию.
+    // Загружает конфигурацию домена по id прототипа; при отсутствии — оставляет значения по умолчанию.
     public void LoadDomainConfig(string prototypeId)
     {
         // Find domain config. If missing, keep defaults.
-        if (!_prototypeManager.TryIndex<Content.Shared._NF.Market.Prototypes.MarketDomainConfigPrototype>(prototypeId, out var proto))
+        if (!_prototypeManager.TryIndex<Content.Shared._Lua.Market.Prototypes.MarketDomainConfigPrototype>(prototypeId, out var proto))
             return;
         _domainBaseMultiplier = proto.BaseMultiplier;
 

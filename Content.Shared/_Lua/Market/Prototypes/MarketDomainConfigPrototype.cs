@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._NF.Market.Prototypes;
+namespace Content.Shared._Lua.Market.Prototypes;
 
 /// <summary>
 /// Prototype to configure market domain pricing and per-category dynamic parameters.

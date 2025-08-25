@@ -10,11 +10,7 @@ namespace Content.Client.Cargo.UI;
 [GenerateTypedNameReferences]
 public sealed partial class CargoPalletMenu : FancyWindow
 {
-    // Fired when the user requests to sell all items currently on pallets within range.
-    // RU: Событие на запрос продажи всех товаров на паллетах в радиусе.
     public Action? SellRequested;
-    // Fired when the user requests an appraisal (refresh) of current pallet contents.
-    // RU: Событие на запрос переоценки (обновления) содержимого паллет.
     public Action? AppraiseRequested;
 
     public CargoPalletMenu()
@@ -24,30 +20,31 @@ public sealed partial class CargoPalletMenu : FancyWindow
         AppraiseButton.OnPressed += OnAppraisePressed;
     }
 
-    // Sets the estimated value before taxes and dynamic pricing adjustments.
-    // RU: Устанавливает оценочную стоимость до налогов и динамики.
     public void SetAppraisal(int amount)
     {
         AppraisalLabel.Text = BankSystemExtensions.ToSpesoString(amount);
     }
 
-    // Sets the preview of the real payout after taxes and dynamic pricing.
-    // RU: Устанавливает реальную выплату после налогов и динамического мультипликатора.
+    // Lua start
+    // Устанавливает реальную выплату после налогов и динамического мультипликатора.
     public void SetReal(int amount)
     {
         RealLabel.Text = BankSystemExtensions.ToSpesoString(amount);
     }
+    // Lua end
 
     public void SetCount(int count)
     {
         CountLabel.Text = count.ToString();
     }
-    // Sets a localized summary of total price reduction (e.g. "-17%").
-    // RU: Устанавливает краткое описание общего снижения цены (например, "-17%").
+
+    // Lua start
+    // Устанавливает краткое описание общего снижения цены (например, "-17%").
     public void SetReductionText(string text)
     {
         ReductionLabel.Text = text;
     }
+    // Lue end
 
     public void SetEnabled(bool enabled)
     {
@@ -55,11 +52,13 @@ public sealed partial class CargoPalletMenu : FancyWindow
         SellButton.Disabled = !enabled;
     }
 
+    // Lua start
     public void SetMinimalUi(bool minimal)
     {
         RealRow.Visible = !minimal;
         ReductionRow.Visible = !minimal;
     }
+    // Lua end
 
     private void OnSellPressed(BaseButton.ButtonEventArgs obj)
     {

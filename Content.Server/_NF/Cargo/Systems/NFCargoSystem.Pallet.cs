@@ -10,13 +10,15 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using System.Numerics;
 using Content.Shared.Coordinates;
-using Content.Shared.Stacks; //Lua: for StackComponent
+using Content.Shared.Stacks; // Lua: for StackComponent
 
 namespace Content.Server._NF.Cargo.Systems;
 
-// Handles cargo pallet mechanics (UI updates, appraisal, selling).
-// Based on Wizden's CargoSystem with Frontier dynamic pricing integration.
-// RU: Механики паллет карго: UI, оценка, продажа; интеграция динамики Frontier.
+/// <summary>
+/// Handles cargo pallet (sale) mechanics.
+/// Based off of Wizden's CargoSystem.
+/// Механики паллет карго: UI, оценка, продажа; интеграция динамики Frontier.
+/// </summary>
 public sealed partial class NFCargoSystem
 {
     // The maximum distance from the console to look for pallets.
@@ -24,8 +26,6 @@ public sealed partial class NFCargoSystem
 
     private static readonly SoundPathSpecifier ApproveSound = new("/Audio/Effects/Cargo/ping.ogg");
 
-    // Subscribes to relevant events for pallet consoles and round lifecycle.
-    // RU: Подписка на события консоли паллет и жизненного цикла раунда.
     private void InitializeShuttle()
     {
         SubscribeLocalEvent<NFCargoPalletConsoleComponent, CargoPalletSellMessage>(OnPalletSale);
@@ -37,10 +37,7 @@ public sealed partial class NFCargoSystem
 
     #region Console
 
-    // Recomputes the UI state, including dynamic pricing preview and reduction summary.
-    // For non-contributing consoles, shows a minimal UI.
-    // RU: Пересчитывает состояние UI; для не-влияющих на рынок консолей — упрощённый UI.
-    private void UpdatePalletConsoleInterface(Entity<NFCargoPalletConsoleComponent> ent)
+    private void UpdatePalletConsoleInterface(Entity<NFCargoPalletConsoleComponent> ent) // Frontier: EntityUid<Entity
     {
         if (Transform(ent).GridUid is not EntityUid gridUid)
         {
@@ -49,18 +46,20 @@ public sealed partial class NFCargoSystem
             return;
         }
 
-        // Modify preview price with tax and dynamic pricing.
-        // RU: Корректирует предварительную цену с учётом налога и динамики.
+        // Modify prices based on modifier.
         GetPalletGoods(ent, gridUid, out var toSell, out var amount, out var noModAmount);
 
+        // Lua start
         // Compute dynamic reduction summary and tax for UI
         double dynamicMultiplierAvg = 1.0;
         double taxMultiplier = 1.0;
+        // Lua end
         if (TryComp<MarketModifierComponent>(ent, out var priceMod))
         {
-            taxMultiplier = priceMod.Mod;
+            taxMultiplier = priceMod.Mod; // Lua ammount * < taxMultiplier
         }
 
+        // Lua start
         // Estimate dynamic effect by averaging multipliers of unique prototypes present.
         // This is an approximation for a compact UI summary.
         var uniqueProtos = new HashSet<string>();
@@ -80,9 +79,10 @@ public sealed partial class NFCargoSystem
         // Apply tax to taxable amount
         amount *= taxMultiplier;
         // Add immune amount after tax (immune to tax and dynamic)
-        amount += noModAmount;
         //Lua End
+        amount += noModAmount;
 
+        // Lua start
         // Build UI reduction text. For consoles that do not contribute to market, hide system UI.
         var reductionText = "";
         var contributes = ent.Comp.ContributesToMarket;
@@ -121,7 +121,6 @@ public sealed partial class NFCargoSystem
             dynPercentInt = Math.Max(0, (int)Math.Round(dynPercent));
             reductionText = $"-{dynPercentInt}%";
         }
-        //Lua End
 
         // Compute real preview price with tax and dynamics (including bulk preview effect).
         // RU: Считает реальную цену предпросмотра с налогом и динамикой (с учётом эффекта партии).
@@ -165,8 +164,9 @@ public sealed partial class NFCargoSystem
         }
 
         var minimalUi = !ent.Comp.ContributesToMarket;
+        // Lua end
         _ui.SetUiState(ent.Owner, CargoPalletConsoleUiKey.Sale,
-            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true, reductionText, (int)real, dynPercentInt, minimalUi));
+            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true, reductionText, (int)real, dynPercentInt, minimalUi)); // Lua add: reductionText, (int)real, dynPercentInt, minimalUi
     }
 
     private void OnPalletUIOpen(Entity<NFCargoPalletConsoleComponent> ent, ref BoundUIOpenedEvent args)
@@ -191,8 +191,13 @@ public sealed partial class NFCargoSystem
 
     #region Shuttle
 
-    // Calculates Euclidean distance between two coordinates (for world-space checks).
-    // RU: Евклидово расстояние между координатами; для проверки близости паллет.
+    /// <summary>
+    /// Calculates distance between two EntityCoordinates
+    /// Used to check for cargo pallets around the console instead of on the grid.
+    /// </summary>
+    /// <param name="point1">first point to get distance between</param>
+    /// <param name="point2">second point to get distance between</param>
+    /// <returns></returns>
     public static double CalculateDistance(EntityCoordinates point1, EntityCoordinates point2)
     {
         var xDifference = point2.X - point1.X;
@@ -221,12 +226,11 @@ public sealed partial class NFCargoSystem
                 continue;
             }
 
-            // Check distance to pallets. RU: Проверка дистанции до паллетов.
+            // Check distance on pallets
             var distance = CalculateDistance(compXform.Coordinates, consoleXform.Coordinates);
             var maxPalletDistance = DefaultPalletDistance;
 
-            // Read the mapped checking distance from the console component.
-            // RU: Берём радиус проверки из компонента консоли (если задан).
+            // Get the mapped checking distance from the console
             if (TryComp<NFCargoPalletConsoleComponent>(consoleUid, out var cargoShuttleComponent))
                 maxPalletDistance = cargoShuttleComponent.PalletDistance;
 
@@ -243,10 +247,7 @@ public sealed partial class NFCargoSystem
 
     #region Station
 
-        // Deletes items from pallets and raises sale events after computing final price.
-        // Returns whether any items were actually sold.
-        // RU: Удаляет предметы с паллет и шлёт события продажи после расчёта финальной цены.
-        private bool SellPallets(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount)
+        private bool SellPallets(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount) // Frontier: first arg to Entity, add noMultiplierAmount
     {
         GetPalletGoods(consoleUid, gridUid, out var toSell, out amount, out noMultiplierAmount);
 
@@ -255,7 +256,7 @@ public sealed partial class NFCargoSystem
         if (toSell.Count == 0)
             return false;
 
-            var ev = new NFEntitySoldEvent(toSell, gridUid, consoleUid.Owner);
+        var ev = new NFEntitySoldEvent(toSell, gridUid, consoleUid.Owner); // Lua add: consoleUid.Owner
         RaiseLocalEvent(ref ev);
 
         foreach (var ent in toSell)
@@ -264,11 +265,7 @@ public sealed partial class NFCargoSystem
         return true;
     }
 
-    // Enumerates sellable entities on pallets within range and sums their prices.
-    // Splits amounts into taxable/dynamic and immune buckets.
-    // RU: Перечисляет продаваемые сущности на паллетах и суммирует их цены,
-    // RU: разделяя на облагаемые/динамические и иммунные суммы.
-    private void GetPalletGoods(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount)
+    private void GetPalletGoods(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount) // Frontier: first arg to Entity, add noMultiplierAmount
     {
         amount = 0;
         noMultiplierAmount = 0;
@@ -306,8 +303,7 @@ public sealed partial class NFCargoSystem
                     continue;
                 toSell.Add(ent);
 
-                // Items immune to market modifiers (e.g. cash) are counted separately.
-                // RU: Иммунные к модификаторам (например, деньги) учитываются отдельно.
+                // Check for items that are immune to market modifiers
                 if (HasComp<IgnoreMarketModifierComponent>(ent))
                     noMultiplierAmount += price;
                 else
@@ -344,9 +340,6 @@ public sealed partial class NFCargoSystem
         return true;
     }
 
-    // Handles the sell action: computes price with dynamic preview batch logic,
-    // deletes items, spawns cash, then applies bulk dynamic effects.
-    // RU: Обработка продажи: расчёт цены с батч-превью, удаление, выдача денег, оптовой эффект.
     private void OnPalletSale(Entity<NFCargoPalletConsoleComponent> ent, ref CargoPalletSellMessage args)
     {
         if (!TryComp(ent, out TransformComponent? xform))
@@ -359,19 +352,19 @@ public sealed partial class NFCargoSystem
             return;
         }
 
+        //if (!SellPallets(ent, gridUid, out var price, out var noMultiplierPrice)) // Lua
         // Compute price before deletion (prevents zero after deletion).
-        GetPalletGoods(ent, gridUid, out var toSellNow, out _, out _);
-        if (toSellNow.Count == 0)
+        GetPalletGoods(ent, gridUid, out var toSellNow, out _, out _); // Lua
+        if (toSellNow.Count == 0) // Lua
             return;
 
-            // Handle market modifiers, immune objects and dynamic pricing.
-            // RU: Учёт налога, иммунных объектов и динамики.
-        double taxMultiplier = 1.0;
+        // Учёт налога, иммунных объектов и динамики.
+        double taxMultiplier = 1.0; // Lua (господи боже... ебанная иишка нахуй оно это всё...)
         if (TryComp<MarketModifierComponent>(ent, out var priceMod))
             taxMultiplier = priceMod.Mod;
 
-            // Build preview-batch by prototype (stacks count as 1) to match UI pricing preview.
-            // RU: Формируем размеры партий по прототипам (стак=1) как в превью UI.
+            // Формируем размеры партий по прототипам (стак=1) как в превью UI. (партии единной россии блять)
+            // Lua start
             var previewBatchByProto = new Dictionary<string, int>();
             var contributesSale = ent.Comp.ContributesToMarket;
             if (contributesSale)
@@ -423,8 +416,7 @@ public sealed partial class NFCargoSystem
                 }
             }
 
-        // Compute batch sizes by prototype (for post-sale bulk effect), counting each stack as 1 unit.
-        // RU: Размеры партий по прототипам для последующего оптового эффекта, считая каждый стак как 1.
+        // Размеры партий по прототипам для последующего оптового эффекта, считая каждый стак как 1.
             var bulkByProto = new Dictionary<string, int>();
         if (contributesSale)
         {
@@ -443,19 +435,22 @@ public sealed partial class NFCargoSystem
         if (!SellPallets(ent, gridUid, out _, out _))
             return; // someone snatched items
         var price = finalPrice;
+        // Lua end
 
         var stackPrototype = _proto.Index(ent.Comp.CashType);
         var stackUid = _stack.Spawn((int)price, stackPrototype, args.Actor.ToCoordinates());
         if (!_hands.TryPickupAnyHand(args.Actor, stackUid))
             _transform.SetLocalRotation(stackUid, Angle.Zero); // Orient these to grid north instead of map north
         _audio.PlayPvs(ApproveSound, ent);
-        // Apply bulk effect to dynamic state after sale. RU: Применяем оптовое снижение.
+        // Lua start
+        // Применяем оптовое снижение.
         if (contributesSale)
         {
             var sys = ResolveRoutingSystem(ent.Owner);
             foreach (var (pid, count) in bulkByProto)
                 sys?.ApplyBulkSaleEffect(pid, count);
         }
+        // Lua end
 
         UpdatePalletConsoleInterface(ent);
     }
@@ -468,4 +463,4 @@ public sealed partial class NFCargoSystem
 /// deleted but after the price has been calculated.
 /// </summary>
 [ByRefEvent]
-public readonly record struct NFEntitySoldEvent(HashSet<EntityUid> Sold, EntityUid Grid, EntityUid SourceConsole);
+public readonly record struct NFEntitySoldEvent(HashSet<EntityUid> Sold, EntityUid Grid, EntityUid SourceConsole); // Lua add: EntityUid SourceConsol

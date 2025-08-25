@@ -1,3 +1,7 @@
+// LuaWorld - This file is licensed under AGPLv3
+// Copyright (c) 2025 LuaWorld
+// See AGPLv3.txt for details.
+
 // Dynamic pricing subsystem for Frontier: time restoration, per-unit sale decay,
 // and one-off bulk decay. Category detection is component-based. Instruments are excluded.
 // RU: Подсистема динамики цен: восстановление по времени, поштучное и оптовое снижение.
