@@ -18,6 +18,9 @@ namespace Content.Client._Lua.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class YupiTransferUiFragment : BoxContainer
 {
+    // Feature: PDA cartridge for person-to-person money transfers and loan repayments.
+    // Why: Provides quick access to YUPI operations without visiting consoles.
+    // UX: static captions localized via Loc; copy button shows current code and copies it to clipboard.
     private BoundUserInterface _ui = default!;
     private LineEdit _codeInput = default!;
     private LineEdit _amountInput = default!;

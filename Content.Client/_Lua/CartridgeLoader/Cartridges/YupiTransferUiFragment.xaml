@@ -1,3 +1,12 @@
+<!--
+  YupiTransferUiFragment
+  Purpose: In‑game peer‑to‑peer transfers ("YUPI") cartridge UI for PDA.
+  Provides: own code display/copy, balance readout, target code + amount inputs,
+            send transfer and repay loan actions, and a branded footer.
+  Notes:
+  - Static labels are localized from code-behind via Loc keys (yupi-ui-*).
+  - Copy button doubles as current player's YUPI code display.
+-->
 <cartridges:YupiTransferUiFragment
     xmlns:cartridges="clr-namespace:Content.Client._Lua.CartridgeLoader.Cartridges;assembly=Content.Client"
     xmlns="https://spacestation14.io"
@@ -29,6 +38,7 @@
     <Button Name="RepayButton" Text="Погасить кредит" HorizontalExpand="True"/>
   </BoxContainer>
   <Control VerticalExpand="True"/>
+  <!-- Brand footer/logo (purely decorative) -->
   <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
     <TextureRect Name="BankLogo"
                  TexturePath="/Textures/_Lua/Icon_bank/Nanotrahen_logo_invert.png"

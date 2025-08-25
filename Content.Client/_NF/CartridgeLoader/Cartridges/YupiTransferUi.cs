@@ -6,6 +6,10 @@ using Content.Client._Lua.CartridgeLoader.Cartridges; //Lua
 
 namespace Content.Client._NF.CartridgeLoader.Cartridges;
 
+/*
+ Feature: UIFragment glue for YUPI cartridge.
+ Wires: creates fragment, passes BUI to it, relays state updates (YupiTransferUiState).
+*/
 public sealed partial class YupiTransferUi : UIFragment
 {
     private YupiTransferUiFragment? _fragment;

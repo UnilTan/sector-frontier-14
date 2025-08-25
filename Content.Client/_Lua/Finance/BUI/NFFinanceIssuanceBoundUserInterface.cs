@@ -1,8 +1,8 @@
 /*
- * LuaWorld - This file is licensed under AGPLv3
- * Copyright (c) 2025 LuaWorld Contributors
- * See AGPLv3.txt for details.
- */
+ Feature: Client BUI for loan issuance console.
+ Purpose: Allows privileged users to issue loans and see rating context.
+ State handling: FinanceRatingState populates rating, FinanceIssueLoanResponseState shows outcome.
+*/
 
 using Content.Shared.UserInterface;
 using Content.Shared._NF.Finance.BUI;
