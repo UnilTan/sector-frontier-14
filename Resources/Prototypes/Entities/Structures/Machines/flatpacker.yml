@@ -8,10 +8,9 @@
     sprite: Structures/Machines/flatpacker.rsi
     snapCardinals: true
     layers:
-    - state: base
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: packing
+    - state: screen
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
       map: ["anim"]
       visible: false
     - state: inserting
