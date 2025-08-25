@@ -21,13 +21,13 @@ namespace Content.Shared._NF.Clothing.EntitySystems;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!; // Система стояния/лежания
-        [Dependency] private readonly SharedGravitySystem _gravity = default!;
+        [Dependency] private readonly SharedGravitySystem _gravity = default!; //Lua: used to explicitly clear IsWeightless when gravity is present
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NFMoonBootsComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<NFMoonBootsComponent, ItemToggledEvent>(OnToggled); //Lua: track toggling boots - show alert/stand up
         SubscribeLocalEvent<NFMoonBootsComponent, ClothingGotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<NFMoonBootsComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<NFMoonBootsComponent, IsWeightlessEvent>(OnIsWeightless);
@@ -45,7 +45,7 @@ namespace Content.Shared._NF.Clothing.EntitySystems;
                 UpdateMoonbootEffects(container.Owner, ent, args.Activated);
 
                 // Если включают ботинки лежа — сразу поднимем персонажа
-                if (args.Activated && HasComp<StandingStateComponent>(container.Owner) && _standing.IsDown(container.Owner))
+                if (args.Activated && HasComp<StandingStateComponent>(container.Owner) && _standing.IsDown(container.Owner)) //Lua: fix - stand up when activating while prone to prevent "flying while prone"
                 {
                     _standing.Stand(container.Owner, force: true);
                 }
