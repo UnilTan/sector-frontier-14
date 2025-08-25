@@ -10,7 +10,7 @@ namespace Content.Shared.Shuttles.Components
     }
 
     [Serializable, NetSerializable]
-    public sealed class ThrusterToggleMessage : BoundUserInterfaceMessage
+    public sealed class ThrusterToggleMessage : BoundUserInterfaceMessage //Lua
     {
     }
 }

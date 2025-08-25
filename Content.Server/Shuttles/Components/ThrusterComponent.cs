@@ -2,7 +2,7 @@ using System.Numerics;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Damage;
-using Content.Shared.DeviceLinking; // Frontier
+using Content.Shared.DeviceLinking; //Lua
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -66,7 +66,7 @@ namespace Content.Server.Shuttles.Components
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
         public TimeSpan NextFire = TimeSpan.Zero;
 
-        // Frontier: upgradeable parts, togglable thrust
+        //Lua: upgradeable parts, togglable thrust
         [DataField]
         public ProtoId<MachinePartPrototype> MachinePartThrust = "Capacitor";
 
@@ -89,7 +89,7 @@ namespace Content.Server.Shuttles.Components
 
         [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
         public string TogglePort = "Toggle";
-        // End Frontier: upgradeable parts, togglable thrust
+        // End Lua: upgradeable parts, togglable thrust
     }
 
     public enum ThrusterType

@@ -35,7 +35,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 300  # Changed 100->300 because impact damage is real
+          damage: 300  #Lua: 100<300 (impact damage is real)
         behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]
@@ -77,7 +77,7 @@
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi #Lua: use _NF prefix
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -90,7 +90,7 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  # Frontier: linkable thrusters, pirate bounties
+  #Lua: linkable thrusters, pirate bounties
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -103,7 +103,7 @@
     - Toggle
   - type: PirateBountyItem
     id: Thruster
-  # End Frontier
+  # End Lua
   - type: RadarBlip # Mono
     radarColor: "#99FF99"
     scale: 1
@@ -130,7 +130,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi #Lua: use _NF prefix
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -156,10 +156,10 @@
     baseThrust: 2000
     thrust: 2000
     machinePartThrust: Manipulator
-    thrustPerPartLevel: [2000, 2500, 3000, 3500, 4000] # Frontier: upgradable gyroscopes
+    thrustPerPartLevel: [2000, 2500, 3000, 3500, 4000] #Lua: upgradable gyroscopes
   - type: Sprite
     # Listen I'm not the biggest fan of the sprite but it was the most appropriate thing I could find.
-    sprite: _NF/Structures/Shuttles/gyroscope.rsi # Frontier: add _NF prefix
+    sprite: _NF/Structures/Shuttles/gyroscope.rsi #Lua: add _NF prefix
     snapCardinals: true
     layers:
     - state: base
@@ -211,9 +211,9 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Electronic
   - type: StaticPrice
-    price: 300 # Frontier - 2000<300
-  - type: PirateBountyItem # Frontier
-    id: Gyroscope # Frontier
+    price: 300 #Lua: 2000<300
+  - type: PirateBountyItem #Lua
+    id: Gyroscope #Lua
 
 - type: entity
   id: GyroscopeUnanchored
@@ -239,7 +239,7 @@
     needsPower: false
     powerLoad: 0
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/gyroscope.rsi # Frontier: add _NF prefix
+    sprite: _NF/Structures/Shuttles/gyroscope.rsi #Lua: add _NF prefix
     snapCardinals: true
     layers:
     - state: base

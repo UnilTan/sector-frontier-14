@@ -7,16 +7,16 @@ using Content.Server.Station.Components;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
-using Content.Shared.Tiles; // Frontier
+using Content.Shared.Tiles; //Lua
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared._NF.Emp.Components; // Frontier
-using Robust.Server.GameStates; // Frontier: EMP Blast PVS
-using Robust.Shared.Configuration; // Frontier: EMP Blast PVS
-using Robust.Shared; // Frontier: EMP Blast PVS
-using Content.Shared.Verbs; // Frontier: examine verb
-using Robust.Shared.Utility; // Frontier: examine verb
-using Content.Server.Examine; // Frontier: examine verb
+using Content.Shared._NF.Emp.Components; //Lua
+using Robust.Server.GameStates; //Lua: EMP Blast PVS
+using Robust.Shared.Configuration; //Lua: EMP Blast PVS
+using Robust.Shared; //Lua: EMP Blast PVS
+using Content.Shared.Verbs; //Lua: examine verb
+using Robust.Shared.Utility; //Lua: examine verb
+using Content.Server.Examine; //Lua: examine verb
 
 namespace Content.Server.Emp;
 
@@ -28,7 +28,7 @@ public sealed class EmpSystem : SharedEmpSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
     [Dependency] private readonly ExamineSystem _examine = default!; // Frontier: examine verb
 
-    public const string EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier: EffectEmpPulse
+    public const string EmpPulseEffectPrototype = "EffectEmpBlast"; //Lua: EffectEmpPulse
 
     public override void Initialize()
     {

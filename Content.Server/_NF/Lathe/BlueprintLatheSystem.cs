@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis; //Lua
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction;
@@ -397,25 +397,19 @@ public sealed class BlueprintLatheSystem : SharedBlueprintLatheSystem
         if (component.CurrentBlueprintType != null && component.CurrentRecipeSets != null)
         {
             // Items incremented on start, need to decrement with removal
-                if (component.Queue.Count > 0)
+            if (component.Queue.Count > 0)
+            {
+                var batch = component.Queue.First();
+                if (batch.BlueprintType != component.CurrentBlueprintType && RecipeSetsEqual(batch.Recipes, component.CurrentRecipeSets))
                 {
-                    var batch = component.Queue.First();
-                    if (batch.BlueprintType != component.CurrentBlueprintType || !RecipeSetsEqual(batch.Recipes, component.CurrentRecipeSets))
-                    {
-                        var newBatch = new BlueprintLatheRecipeBatch(component.CurrentBlueprintType.Value, component.CurrentRecipeSets, 0, 1);
-                        component.Queue.Insert(0, newBatch);
-                    }
-                    else if (batch.ItemsPrinted > 0)
-                    {
-                        batch.ItemsPrinted--;
-                    }
-                }
-                else
-                {
-                    // Очередь пуста — вернём один элемент, чтобы не терять ресурсы
                     var newBatch = new BlueprintLatheRecipeBatch(component.CurrentBlueprintType.Value, component.CurrentRecipeSets, 0, 1);
                     component.Queue.Insert(0, newBatch);
                 }
+                else if (batch.ItemsPrinted > 0)
+                {
+                    batch.ItemsPrinted--;
+                }
+            }
         }
         component.CurrentBlueprintType = null;
         component.CurrentRecipeSets = null;

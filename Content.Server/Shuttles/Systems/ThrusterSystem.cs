@@ -20,9 +20,9 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Localizations;
 using Content.Shared.Power;
-using Content.Server.Construction; // Frontier
-using Content.Server.Construction.Components; // Frontier
-using Content.Shared.DeviceLinking.Events; // Frontier
+using Content.Server.Construction; //Lua
+using Content.Server.Construction.Components; //Lua
+using Content.Shared.DeviceLinking.Events; //Lua
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -64,10 +64,10 @@ public sealed class ThrusterSystem : EntitySystem
 
         SubscribeLocalEvent<ThrusterComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<ThrusterComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-        SubscribeLocalEvent<ThrusterComponent, SignalReceivedEvent>(OnSignalReceived); // Frontier
+        SubscribeLocalEvent<ThrusterComponent, SignalReceivedEvent>(OnSignalReceived); //Lua
     }
 
-    // Frontier: signal handler
+    //Lua: signal handler
     private void OnSignalReceived(EntityUid uid, ThrusterComponent component, ref SignalReceivedEvent args)
     {
         if (args.Port == component.OffPort)
@@ -82,17 +82,17 @@ public sealed class ThrusterSystem : EntitySystem
         if (!component.Enabled)
         {
             if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && component.OriginalLoad != 0 && apcPower.Load != 1)
-                apcPower.Load = 1;
+                apcPower.Load = 1; //Lua: minimize load when disabled
             DisableThruster(uid, component);
         }
         else if (CanEnable(uid, component))
         {
             if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && component.OriginalLoad != apcPower.Load)
-                apcPower.Load = component.OriginalLoad;
+                apcPower.Load = component.OriginalLoad; //Lua: restore original load
             EnableThruster(uid, component);
         }
     }
-    // End Frontier: signal handler
+    // End Lua: signal handler
 
     private void OnThrusterExamine(EntityUid uid, ThrusterComponent component, ExaminedEvent args)
     {
@@ -279,12 +279,12 @@ public sealed class ThrusterSystem : EntitySystem
 
     private void OnThrusterInit(EntityUid uid, ThrusterComponent component, ComponentInit args)
     {
-        // Frontier: togglable thrusters
+        //Lua: togglable thrusters
         if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && component.OriginalLoad == 0)
         {
             component.OriginalLoad = apcPower.Load;
         }
-        // End Frontier: togglable thrusters
+        // End Lua: togglable thrusters
 
         _ambient.SetAmbience(uid, false);
 
@@ -302,10 +302,10 @@ public sealed class ThrusterSystem : EntitySystem
     private void OnMapInit(Entity<ThrusterComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextFire = _timing.CurTime + ent.Comp.FireCooldown;
-        // Frontier: upgradeable parts
+        //Lua: upgradeable parts
         if (TryComp<MachineComponent>(ent, out var machineComp))
             _construction.RefreshParts(ent, machineComp);
-        // End Frontier: upgradeable parts
+        // End Lua: upgradeable parts
     }
 
     private void OnThrusterShutdown(EntityUid uid, ThrusterComponent component, ComponentShutdown args)
@@ -524,7 +524,7 @@ public sealed class ThrusterSystem : EntitySystem
         var query = EntityQueryEnumerator<ThrusterComponent>();
         var curTime = _timing.CurTime;
 
-        while (query.MoveNext(out var ent, out var comp)) // Frontier: add out var ent
+        while (query.MoveNext(out var ent, out var comp)) //Lua: add out var ent
         {
             if (comp.NextFire > curTime)
                 continue;
@@ -536,14 +536,14 @@ public sealed class ThrusterSystem : EntitySystem
 
             foreach (var uid in comp.Colliding.ToArray())
             {
-                // Frontier: make sure they're still in danger
-                // Frontier TODO: Actually fix the cause of this bug (EndCollideEvent not firing on buckled entities)
+                //Lua: make sure they're still in danger
+                //Lua TODO: Actually fix the cause of this bug (EndCollideEvent not firing on buckled entities)
                 if (!_transform.InRange(ent, uid, 2f))
                 {
                     comp.Colliding.Remove(uid);
                     continue;
                 }
-                // End Frontier
+                // End Lua
 
                 _damageable.TryChangeDamage(uid, comp.Damage);
             }
@@ -657,7 +657,7 @@ public sealed class ThrusterSystem : EntitySystem
         }
     }
 
-    // Frontier: upgradeable machine parts, separate EMP handler
+    //Lua: upgradeable machine parts, separate EMP handler
     private void OnRefreshParts(EntityUid uid, ThrusterComponent component, RefreshPartsEvent args)
     {
         if (component.IsOn) // safely disable thruster to prevent negative thrust
@@ -700,7 +700,7 @@ public sealed class ThrusterSystem : EntitySystem
 
     //[ByRefEvent]
     //public record struct ThrusterToggleAttemptEvent(bool Cancelled);
-    // End Frontier: upgradeable machine parts, separate EMP handler
+    // End Lua: upgradeable machine parts, separate EMP handler
 
     #endregion
 
