@@ -51,6 +51,7 @@
   recipeType: Oven # Frontier
 
 #Burgers
+# Lua: добавлены совместимые рецепты с универсальным `FoodMeatFishGeneric` (hideInGuidebook где уместно)
 
 - type: microwaveMealRecipe
   id: RecipeAppendixBurger
@@ -445,6 +446,7 @@
   recipeType: Oven # Frontier
 
 #Breads & Sandwiches
+# Lua: часть блюд использует новые спрайты из `_Lua/Objects/Consumable/Food/*.rsi`
 
 - type: microwaveMealRecipe
   id: RecipeBananaBread
@@ -967,6 +969,7 @@
   recipeType: Oven # Frontier
 
 #Soups & Stew
+# Lua: рыбо-супы совместимы с `FoodMeatFishGeneric` и спрайтами из `_Lua/Objects/Consumable/Food/fish_dishes.rsi`
 - type: microwaveMealRecipe
   id: RecipeBisque
   name: bisque recipe

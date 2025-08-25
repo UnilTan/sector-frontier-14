@@ -15,6 +15,7 @@
   - Oven
 
 # Baked Fish
+# Lua: новые рыбо-блюда используют спрайты из `_Lua/Objects/Consumable/Food/fish_dishes.rsi`
 
 - type: microwaveMealRecipe
   id: RecipeBakedFishFillet
@@ -50,6 +51,7 @@
   - Assembler
 
 # Soup
+# Lua: рыбные супы используют спрайты из `_Lua/Objects/Consumable/Food/fish_dishes.rsi`
 
 - type: microwaveMealRecipe
   id: RecipeFishChowder
@@ -383,6 +385,7 @@
   hideInGuidebook: true
 
 # Sushi remains carp-only; generic fish variant provided separately.
+# Lua: generic fish вариант скрыт в гайде, совместим с `FoodMeatFishGeneric`
 
 - type: microwaveMealRecipe
   id: RecipeCuredCarpSushi
