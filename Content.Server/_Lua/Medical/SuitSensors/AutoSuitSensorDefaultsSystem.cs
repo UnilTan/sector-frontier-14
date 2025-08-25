@@ -51,8 +51,8 @@ public sealed class AutoSuitSensorDefaultsSystem : EntitySystem
             //Lua: exclude by job icon/access tags (Syndicate/Pirate/Merc)
             if (_idCard.TryFindIdCard(wearer, out var delayedId))
             {
-                //Lua: job icon check (avoid ToString() on nullable string)
-                var jobIconStr = delayedId.Comp.JobIcon; //Lua: fix possible NRE by using the string directly
+                //Lua: job icon check using string id
+                var jobIconStr = delayedId.Comp.JobIcon.Id;
                 if (!string.IsNullOrEmpty(jobIconStr)) //Lua: guard against null/empty
                 {
                     //Lua: mercenary
