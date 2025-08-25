@@ -8,9 +8,10 @@
     sprite: _Lua/Structures/Machines/flatpacker.rsi
     snapCardinals: true
     layers:
-    - state: screen
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
+    - state: base
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: packing
       map: ["anim"]
       visible: false
     - state: inserting
