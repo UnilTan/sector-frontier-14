@@ -1,5 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server.Medical.SuitSensors;
+using Content.Server._NF.Medical.SuitSensors; //Lua
 using Content.Server.Access.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Inventory;
